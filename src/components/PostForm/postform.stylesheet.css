@@ -1,0 +1,33 @@
+
+
+
+
+.post-form{
+    padding: 130px 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #FEFDFB;
+    width: 100%;
+}
+
+.post-form .call{
+    width: 345px;
+    height: 65px;
+    background: linear-gradient(267.78deg, #FB923C 0.19%, #BC5C4F 72.78%);
+    border-radius: 5px;
+    color: white;
+}
+
+.orange-red{
+    color: #ea580c;
+}
+
+.post-form .call .calllogo{
+    position: relative;
+    margin-top: 7px;
+}
+
+.post-form .call .calllogo .cal{
+    position: absolute;
+    top: 14%;
+    left: 12.5%;
+}
