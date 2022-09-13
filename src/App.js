@@ -3,6 +3,7 @@ import { FormStart } from './components/FormStart/formstart.component';
 import { PostForm } from './components/PostForm/postform.component';
 import { useState } from 'react';
 import footer from './assets/footer.png'
+import './mediaquery.css';
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
 
         <div className='footer-links'>
           <div className='small bold logo'>
-            <span style={{width: '15px', height: '15px', 'background-color': '#FB923C', 'border-radius': '100%' }}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> SOLAR PANEL QOUTES
+            <span style={{width: '17px', height: '10px','marg-bottom':'3px','font-size': '11px', 'background-color': '#FB923C', 'border-radius': '100%' }}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> Solar Panel Quotes
           </div>
 
           <div className='xsmall bold'>Copyright © 2021 | Eruptic Inc.</div>

@@ -1,0 +1,45 @@
+
+
+@media screen and (max-width: 600px) {
+    .media-font-22{
+        font-size: 22px !important;
+    }
+
+    .width-80{
+        width: 80% !important;
+    }
+
+    .media-font-14{
+        font-size: 14px;
+    }
+
+    .media-flex-center-col{
+        flex-direction: column;
+    }
+
+    .rating > span, .rating > img{
+        margin: 7px 0;
+    }
+
+    .quote{
+        width: 78% !important;
+    }
+
+    .qualify-button{
+        width: 271px !important;
+        height: 55px !important;
+    }
+
+    .preform{
+        height: 100vh !important;
+    }
+
+    .question{
+        min-width: 100% !important;
+    }
+
+    .progress{
+        width: 291px !important;
+    }
+
+}

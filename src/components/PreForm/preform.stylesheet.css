@@ -31,4 +31,10 @@
     border: 0px solid;
     width: 280px;
     height: 55px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.qualify-button:hover{
+    transform: scale(1.03);
 }

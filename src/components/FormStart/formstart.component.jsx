@@ -23,22 +23,22 @@ export const FormStart = ({formSubmited, setFormSubmited, name, setName}) => {
                     OUR CUSTOMERS SAY
                 </span>
 
-                <span className='bold large'>
+                <span className='bold media-font-22 large'>
                     What they're saying?
                 </span>
 
-                <span className='grey center lorem small'>
+                <span className='grey width-80 center media-font-14 lorem small'>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis tellus eu turpis sit eget mattis urna.
                 </span>
                 </div>
 
-                <div className='rating flex-speven'>
+                <div className='rating media-flex-center-col flex-speven'>
 
-                    <span className='dark-grey medium bold'>Excellent</span>
+                    <span className='dark-grey medium media-font-22 bold'>Excellent</span>
 
                     <img src={rating5s} />
 
-                    <span className='dark-grey small'>Based on 786 reviews</span>
+                    <span className='dark-grey media- small'>Based on 786 reviews</span>
 
                     <div>
                         <img src={star} />

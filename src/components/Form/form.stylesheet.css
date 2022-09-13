@@ -50,13 +50,15 @@
     display: flex;
     align-items: center;
     padding: 0 25px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
 }
 
-.question .option:active{
-    transition: 0.1s;
+.question .option:hover{
     border: 1px solid #FB923C;
     background-color: #E98C001A;
     color: #FB923C;
+    transform: scale(0.99);
 }
 
 .question .address{
@@ -67,7 +69,7 @@
     margin: 10px 0;
 }
 
-input:active{
+input:hover{
     border: 1px solid #FB923C;
 }
 
@@ -87,7 +89,7 @@ input:active{
     margin: 10px 0;
 }
 
-.question .add-state .state:active{
+.question .add-state .state:hover{
     border: 1px solid #FB923C;
 }
 
@@ -124,13 +126,15 @@ input:active{
     border: 1px solid #EFEFEF;
     border-radius: 5px;
     margin: 5px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
 }
 
-.question .img-option:active{
-    transition: 0.1s;
+.question .img-option:hover{
     border: 1px solid #FB923C;
     background-color: #E98C001A;
     color: #FB923C;
+    transform: scale(0.98);
 }
 
 .options{
