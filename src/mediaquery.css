@@ -9,12 +9,25 @@
         width: 80% !important;
     }
 
+    .media-font-20{
+        font-size: 20px;
+    }
+
     .media-font-14{
         font-size: 14px;
     }
 
     .media-flex-center-col{
         flex-direction: column;
+    }
+
+    .provider > div{
+        width: 100% !important;
+        text-align: center;
+    }
+
+    .width-100{
+        width: 100% !important;
     }
 
     .rating > span, .rating > img{

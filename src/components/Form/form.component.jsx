@@ -37,7 +37,7 @@ export const Form = ({setFormSubmited, setName}) => {
                 </div>
 
                 <div className='question felx-center-col'>
-                    <div className='head orange medium bold'>What is your average monthly electric bill?</div>
+                    <div className='head media-font-20 orange medium bold'>What is your average monthly electric bill?</div>
                 
                     
                     <div onClick={() => {setFormData({bill : "Less than $100"}); setFormStep(1)}} className='option'>Less than $100</div>
@@ -57,7 +57,7 @@ export const Form = ({setFormSubmited, setName}) => {
                 </div>
 
                 <div className='question felx-center-col'>
-                    <div className='head orange medium bold'>How much shade does your home have?</div>
+                    <div className='head media-font-20 orange medium bold'>How much shade does your home have?</div>
                 
                     <div className='options'>
                         <div onClick={() => {setFormData({...formData, shade : "No Shade"}); setFormStep(2)}} className='img-option'><img src={noshade} />No Shade</div>
@@ -77,7 +77,7 @@ export const Form = ({setFormSubmited, setName}) => {
                 </div>
 
                 <div className='question felx-center-col'>
-                    <div className='head orange medium bold'>Are you a homeowner?</div>
+                    <div className='head media-font-20 orange medium bold'>Are you a homeowner?</div>
                 
                     <div onClick={() => {setFormData({...formData,homeowner : "yes"}); setFormStep(3)}} className='option'>Yes</div>
                     <div onClick={() => {setFormData({...formData,homeowner : "no"}); setFormStep(3)}} className='option'>No</div>
@@ -94,14 +94,14 @@ export const Form = ({setFormSubmited, setName}) => {
                 </div>
 
                 <div className='question felx-center-col'>
-                    <div className='head orange medium bold'>What is your Address?</div>
+                    <div className='head media-font-20 orange medium bold'>What is your Address?</div>
                 
                     <input onChange={(e) => {setFormData({...formData, address : e.target.value})}} type='text' placeholder='Address' className="address small" />
 
-                    <div className='add-state'>
-                        <input onChange={(e) => {setFormData({...formData, street : e.target.value})}} type="text" placeholder='Street' className='light-grey small state' />
+                    <div className='media-flex-center-col add-state'>
+                        <input onChange={(e) => {setFormData({...formData, street : e.target.value})}} type="text" placeholder='Street' className='light-grey width-100 small state' />
 
-                        <input onChange={(e) => {setFormData({...formData, state : e.target.value})}} type="text" placeholder='State / Province / Region' className='light-grey small state' />
+                        <input onChange={(e) => {setFormData({...formData, state : e.target.value})}} type="text" placeholder='State / Province / Region' className='width-100 light-grey small state' />
                     </div>
 
                     <input onKeyDown={addAddress} type='text' placeholder='ZIP / Postal Code' className="address small" />
@@ -119,7 +119,7 @@ export const Form = ({setFormSubmited, setName}) => {
                 </div>
 
                 <div className='question felx-center-col'>
-                    <div className='head orange medium bold'>Who is your Utility Provider?</div>
+                    <div className='head orange media-font-20 medium bold'>Who is your Utility Provider?</div>
                 
                     <div className='provider'>
                         <div onClick={() => {setFormData({...formData, provider : "Dominian Energy"}); setFormStep(5)}} className='small option'>Dominian Energy</div>
@@ -143,11 +143,11 @@ export const Form = ({setFormSubmited, setName}) => {
                 </div>
 
                 <div className='question felx-center-col'>
-                    <div className='head orange medium bold'>See Your Free Quotes Now!</div>
+                    <div className='head media-font-20 orange medium bold'>See Your Free Quotes Now!</div>
 
-                    <div className='add-state'>
-                        <input required onChange={(e)=>{setFormData({...formData, fname : e.target.value})}} type="text" placeholder='First Name' className='light-grey small state' />
-                        <input required onChange={(e)=>{setFormData({...formData, lname : e.target.value})}} type="text" placeholder='Last Name' className='light-grey small state' />
+                    <div className='add-state media-flex-center-col'>
+                        <input required onChange={(e)=>{setFormData({...formData, fname : e.target.value})}} type="text" placeholder='First Name' className='light-grey width-100 small state' />
+                        <input required onChange={(e)=>{setFormData({...formData, lname : e.target.value})}} type="text" placeholder='Last Name' className='light-grey width-100 small state' />
                     </div>
 
                     <input required onChange={(e)=>{setFormData({...formData, email : e.target.value})}} type='email' placeholder='Email Address' className="address small" />

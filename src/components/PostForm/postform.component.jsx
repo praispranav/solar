@@ -26,7 +26,7 @@ export const PostForm = ({name}) => {
 
     return(<div className="post-form flex-center-col">
 
-        <div className="orange large bold">
+        <div className="orange media-font-22 large bold">
         Congratulations, {name}!
         </div>
 
@@ -40,13 +40,13 @@ export const PostForm = ({name}) => {
 
         <div className="space25"></div>
 
-        <div className="call flex-center large bold">
+        <div className="call media-font-22 flex-center large bold">
             <div className='calllogo'><img src={call} className="cal" /> <img src={ellipse} /></div>&nbsp; 866-951-5443
         </div>
 
         <div className="space25"></div>
 
-        <div>
+        <div className='small'>
             Act fast! This application expires in: <span className="bold orange-red">0{min}:{sec > 9? sec : `0${sec}`} minute.</span> 
         </div>
 
