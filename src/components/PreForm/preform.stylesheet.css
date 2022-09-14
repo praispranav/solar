@@ -33,6 +33,7 @@
     height: 55px;
     cursor: pointer;
     transition: 0.3s ease-in-out;
+    font-family: 'Poppins', sans-serif;
 }
 
 .qualify-button:hover{

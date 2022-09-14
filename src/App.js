@@ -4,6 +4,7 @@ import { PostForm } from './components/PostForm/postform.component';
 import { useState } from 'react';
 import footer from './assets/footer.png'
 import './mediaquery.css';
+import { Landing } from './components/Landing/landing.component';
 
 
 function App() {
@@ -12,9 +13,14 @@ function App() {
 
   return (
     <div className="App">
-      
-      {formSubmited? <PostForm name={name} /> : <FormStart setFormSubmited={setFormSubmited} setName={setName} />}
 
+      <div className='flex-center solar'>
+        <div className='orange-solar-circle'></div> &nbsp;&nbsp;
+        <div className='small bold'>Solar Panel Quotes</div>
+      </div>
+      
+      {/* {formSubmited? <PostForm name={name} /> : <FormStart setFormSubmited={setFormSubmited} setName={setName} />} */}
+      <Landing />
       <footer>
         <div className="bg-green">
           <img src={footer} className="footer-img" />

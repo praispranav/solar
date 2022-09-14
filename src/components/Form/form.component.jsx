@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import './form.stylesheet.css';
-import axios from 'axios';
+
 import noshade from './noshade.png';
 import littleshade from './littleshade.png';
 import partialshade from './partialshade.png';
 import severeshade from './severeshade.png'
 
+
 export const Form = ({setFormSubmited, setName}) => {
     const [formStep, setFormStep] = useState(0);
     const [formData, setFormData] = useState({});
 
+    // const privateKey = "c74f1b2efb6d7377d8306082a930f9368ea2cc5a";
+    // const spreadSheetId = "19-qrUc2n7mUO8iMvIY-PqQJS79LU_sWuzZtyIT6KzAM";
+    // const sheetId = "0";
+    // const clientEmail = "solar-55@clickdee.iam.gserviceaccount.com"
+    // const doc = new GoogleSpreadsheet(spreadSheetId);
     const addAddress = (e) => {
         if(e.key === "Enter"){
             setFormData({...formData, zip : e.target.value});
@@ -17,12 +23,30 @@ export const Form = ({setFormSubmited, setName}) => {
         }
     }
 
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     // axios.post('https://sheet.best/api/sheets/95bdc3ff-b5b8-44ab-bdb3-953037019d0e', formData).then((response)=>{
+    //     //     setName(formData['fname']);
+    //     //     setFormSubmited(true);
+    //     // })
+
+    //     try {
+    //         await doc.useServiceAccountAuth({
+    //             client_email: clientEmail,
+    //             private_key: privateKey,
+    //         });
+    //         // loads document properties and worksheets
+    //         await doc.loadInfo();
+        
+    //         const sheet = doc.sheetsById[sheetId];
+    //         const result = await sheet.addRow(formData);
+    //         } catch (e) {
+    //             console.error('Error: ', e);
+    //         }
+    // }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://sheet.best/api/sheets/95bdc3ff-b5b8-44ab-bdb3-953037019d0e', formData).then((response)=>{
-            setName(formData['fname']);
-            setFormSubmited(true);
-        })
     }
 
     return(
@@ -105,6 +129,8 @@ export const Form = ({setFormSubmited, setName}) => {
                     </div>
 
                     <input onKeyDown={addAddress} type='text' placeholder='ZIP / Postal Code' className="address small" />
+
+                    <div className='qualify-button medium'>Next</div>
                 
                     <div className='light-grey small'>We'll use satellite imagery based on your address to develop an accurate solar estimate for your home. All information is kept completely confidential.</div>
                 </div>

@@ -7,7 +7,18 @@
   text-align: center;
 }
 
+.solar{
+  width: 100%;
+  height: 64px;
+  background-color: white;
+}
 
+.orange-solar-circle{
+  width: 15px;
+  height: 15px;
+  background-color: #FB923C;
+  border-radius: 100%;
+}
 
 .orange{
   color: #FB923C;
@@ -42,6 +53,10 @@
 .large{
   font-size: 32px;
   line-height: 48px;
+}
+
+.xlarge{
+  font-size: 48px;
 }
 
 .grey{

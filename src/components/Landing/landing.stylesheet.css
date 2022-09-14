@@ -6,5 +6,66 @@
 .landing{
     width: 100%;
     min-height: 100vh;
+    background-color: #fefdfb;
 }
 
+.lander{
+    padding: 160px 20%;
+    background-image: url("../../assets/lander.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.lander-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    border: 0;
+    width: 230px;
+    height: 50px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background: linear-gradient(267.78deg, #FB923C 0.19%, #BC5C4F 72.78%);
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.lander-button:hover{
+    transform: scale(1.05);
+}
+
+.lander-input{
+    width: 225px;
+    height: 50px;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #F9E1C2;
+}
+
+.branding{
+    padding: 100px 20%;
+}
+
+.inside-float-left > div{
+    float: left;
+}
+
+.flex-col-align-cen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+.your-choice{
+    padding: 50px 10%;
+}
