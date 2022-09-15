@@ -34,7 +34,7 @@ export const Landing = ({preForm, setPreForm}) => {
             <div className='space25' />
             <div className='flex-center'>
                 <form className='flex-center' onSubmit={pre}>
-                <input type="text" className='lander-input' placeholder='Enter ZIP code' /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input required type="text" className='lander-input' placeholder='Enter ZIP code' /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button className='lander-button'>Get Free Quote</button>
                 </form>
             </div>
