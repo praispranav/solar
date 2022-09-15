@@ -8,10 +8,6 @@ export const ReviewCard = ({head, content, name}) => (
 
         <div>
             <img src={staryellow} />
-            <img src={staryellow} />
-            <img src={staryellow} />
-            <img src={staryellow} />
-            <img src={staryellow} />
         </div>
 
         <div className='space15'></div>

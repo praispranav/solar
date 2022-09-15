@@ -10,6 +10,13 @@ import { Landing } from './components/Landing/landing.component';
 function App() {
   const [formSubmited, setFormSubmited] = useState(false);
   const [name, setName] = useState('');
+  const [preForm, setPreForm] = useState(true);
+
+  const Decide = () =>(
+    <div>
+      {formSubmited? <PostForm name={name} /> : <FormStart setFormSubmited={setFormSubmited} setName={setName} />}
+    </div>
+  )
 
   return (
     <div className="App">
@@ -19,8 +26,7 @@ function App() {
         <div className='small bold'>Solar Panel Quotes</div>
       </div>
       
-      {/* {formSubmited? <PostForm name={name} /> : <FormStart setFormSubmited={setFormSubmited} setName={setName} />} */}
-      <Landing />
+      {preForm? <Landing preForm={preForm} setPreForm={setPreForm} /> : <Decide/> }
       <footer>
         <div className="bg-green">
           <img src={footer} className="footer-img" />

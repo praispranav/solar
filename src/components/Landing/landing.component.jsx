@@ -15,7 +15,11 @@ import solarloan from './solar-loan.png';
 import cashpurchase from './cash-purchase.png';
 
 
-export const Landing = () => {
+export const Landing = ({preForm, setPreForm}) => {
+
+    const pre = () => {
+        setPreForm(false);
+    }
 
     return(<div className="landing flex-center-col">
         <div className="lander flex-center-col">
@@ -29,8 +33,10 @@ export const Landing = () => {
             <div className='small'>Enter your ZIP Code to get a free report on solar savings & financing options.</div>
             <div className='space25' />
             <div className='flex-center'>
+                <form className='flex-center' onSubmit={pre}>
                 <input type="text" className='lander-input' placeholder='Enter ZIP code' /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <button className='lander-button'>Get Free Quote</button>
+                </form>
             </div>
         
         </div>

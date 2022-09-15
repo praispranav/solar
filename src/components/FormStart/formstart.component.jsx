@@ -1,6 +1,5 @@
 import {React, useState} from 'react';
 import rating5s from '../../assets/rating5s.png';
-import star from '../../assets/star.png';
 import trustpilot from '../../assets/trustpilot.png';
 import { Form } from '../Form/form.component';
 import { PreForm } from '../PreForm/preform.component';
@@ -41,7 +40,6 @@ export const FormStart = ({formSubmited, setFormSubmited, name, setName}) => {
                     <span className='dark-grey media- small'>Based on 786 reviews</span>
 
                     <div>
-                        <img src={star} />
                         <img src={trustpilot} />
                     </div>
                 
