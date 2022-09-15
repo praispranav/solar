@@ -120,10 +120,18 @@ export const Landing = ({preForm, setPreForm}) => {
 
             <details>
                 <summary className='medium'>Net Energy Metering in Virginia</summary>
+
+                <p className='small grey'>
+                The federal solar investment tax credit (ITC) will have the biggest impact on the cost of your solar installation and is good at least through the end of 2022. This credit is 26% off the entire cost of the system including equipment, labor, and permitting. But hurry! The ITC credit drops to 22% in 2023, and the tax credit for Residential Solar drops to 0% in 2024.
+                </p>
             </details>
 
             <details>
                 <summary className='medium'>Additional Solar Rebates</summary>
+
+                <p className='small grey'>
+                The federal solar investment tax credit (ITC) will have the biggest impact on the cost of your solar installation and is good at least through the end of 2022. This credit is 26% off the entire cost of the system including equipment, labor, and permitting. But hurry! The ITC credit drops to 22% in 2023, and the tax credit for Residential Solar drops to 0% in 2024.
+                </p>
             </details>
         </div>
 
