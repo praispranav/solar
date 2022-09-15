@@ -3,6 +3,10 @@
 
 
 
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
 .landing{
     width: 100%;
     min-height: 100vh;
@@ -63,9 +67,118 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-
+    text-align: left;
+    padding: 20px 0px;
 }
 
 .your-choice{
     padding: 50px 10%;
+}
+
+.payment-option{
+    padding: 40px 18%;
+}
+
+.cash-option{
+    position: relative;
+    width: 35%;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #EFEFEF;
+    margin: 40px 10px;
+    padding: 30px;
+    text-align: left;
+    min-height: 420px;
+}
+
+.most-popular{
+    color: white;
+    background-color: #00BC66;
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    top: -27px;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px 7px 0 0;
+}
+
+.cash-option > ul{
+    margin: 0;
+    padding: 0 30px;
+    list-style-image: url("./list-icon.png");
+}
+
+.home-solution{
+    padding: 85px;
+    width: 70%;
+    background-image: url('./home-solution.png');
+    margin: 40px 0;
+    border-radius: 10px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.align-left{
+    text-align: left;
+}
+
+.padding-w12{
+    padding: 30px 12%;
+}
+
+.features{
+    padding: 0 10%;
+    display: flex;
+}
+
+.features > div{
+    margin: 0 20px;
+    text-align: left;
+    padding: 0;
+}
+
+.space20{
+    width: 100px;
+    height: 20px;
+}
+
+.details{
+    width: 100%;
+    padding: 72px;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), linear-gradient(0deg, rgba(251, 146, 60, 0.5), rgba(251, 146, 60, 0.5));
+    margin-top: 100px;
+}
+
+.details details{
+    width: 80%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px 30px;
+    margin: 10px 0;
+    border: 1px solid #dadada;
+    transition: 0.3s;
+    text-align: left;
+}
+
+.details details summary{
+    cursor: pointer;
+    color: #41414a;
+    transition: 0.2s;
+}
+
+.details details[open] > summary{
+    color: #FB923C;
+}
+
+.details details[open]{
+    border: 1px solid #FB923C;
+}
+
+.flex-align-cen{
+    display: flex;
+    align-items: center;
 }
