@@ -53,7 +53,7 @@ export const Landing = () => {
 
         <div className='flex-center your-choice'>
 
-            <img src={house} width="500px" />
+            <img src={house} width="500pxx" />
 
             <div className='flex-col-align-cen inside-float-left'>
                 <div className='orange xsmall'>Safe Solar Financing for Virginians</div>
