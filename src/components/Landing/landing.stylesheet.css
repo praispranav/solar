@@ -54,6 +54,10 @@
     border: 1px solid #F9E1C2;
 }
 
+.lander> div > form > input, .lander> div > form > button{
+    margin: 0 10px;
+}
+
 .branding{
     padding: 100px 20%;
 }

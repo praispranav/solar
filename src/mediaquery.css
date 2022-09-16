@@ -13,8 +13,16 @@
         font-size: 20px;
     }
 
+    .media-font-16{
+        font-size: 16px;
+    }
+
     .media-font-14{
         font-size: 14px;
+    }
+
+    .media-font-12{
+        font-size: 12px;
     }
 
     .media-flex-center-col{
@@ -53,6 +61,74 @@
 
     .progress{
         width: 291px !important;
+    }
+
+    .branding{
+        padding: 75px 10% !important;
+    }
+
+    .flex-wrap-img{
+        flex-wrap: wrap;
+    }
+    .flex-wrap-img > img{
+        margin: 15px;
+    }
+
+    .flex-wrap{
+        flex-wrap: wrap;
+    }
+
+    .features{
+        flex-wrap: wrap;
+    }
+
+    .features div{
+        width: 100%;
+    }
+
+    .details{
+        padding: 40px 0 !important;
+    }
+    .details details{
+        width: 90% !important;
+    }
+
+    .text-center{
+        text-align: center !important;
+        margin: 0 auto;
+    }
+
+    .your-choice{
+        flex-wrap: wrap;
+    }
+
+    .your-choice > img{
+        width: 90%;
+    }
+
+    .payment-option{
+        padding: 40px 10% !important;
+    }
+
+    .lander{
+        padding: 140px 10% !important;
+    }
+
+    .lander> div > form > input, .lander> div > form > button{
+        margin: 15px auto !important;
+    }
+
+    .cash-option{
+        width: 90% !important;
+    }
+
+    .home-solution{
+        width: 100% !important;
+        padding: 25px 7% !important;
+    }
+
+    .margin-bot-70{
+        margin-bottom: 70px !important;
     }
 
 }

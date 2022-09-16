@@ -26,15 +26,15 @@ export const Landing = ({preForm, setPreForm}) => {
 
             <img src={light} />
             <div className='space25' />
-            <div className='xlarge bold'>
+            <div className='xlarge media-font-22 bold'>
                 Switch To Solar Power &  Start <span className='orange'>Saving</span> On Electricity Bills!
             </div>
             <div className='space25' />
-            <div className='small'>Enter your ZIP Code to get a free report on solar savings & financing options.</div>
+            <div className='small media-font-14'>Enter your ZIP Code to get a free report on solar savings & financing options.</div>
             <div className='space25' />
             <div className='flex-center'>
-                <form className='flex-center' onSubmit={pre}>
-                <input required type="text" className='lander-input' placeholder='Enter ZIP code' /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <form className='flex-center flex-wrap' onSubmit={pre}>
+                <input required type="text" className='lander-input' placeholder='Enter ZIP code' />
                 <button className='lander-button'>Get Free Quote</button>
                 </form>
             </div>
@@ -43,7 +43,7 @@ export const Landing = ({preForm, setPreForm}) => {
 
         <div className='branding'>
 
-            <div className='flex-spbet'>
+            <div className='flex-spbet flex-wrap-img'>
                 <img src={im1} />
                 <img src={im2} />
                 <img src={im3} />
@@ -51,13 +51,13 @@ export const Landing = ({preForm, setPreForm}) => {
             </div>
             <div className='space25' />
             <div className='space25' />
-            <div className="xsmall orange">VIRGINIA'S HOME SOLAR SOLUTION</div>
+            <div className="xsmall media-font-12 orange">VIRGINIA'S HOME SOLAR SOLUTION</div>
             <div className='space25' /> 
-            <div className="bold medium">
+            <div className="bold medium media-font-22">
                 Backed By Brands You Can Trust
             </div>
             <div className='space25' />
-            <div className="small">
+            <div className="small media-font-14">
             BrightSuite is Virginia’s one-stop-shop for renewable energy. Curious about what a residential solar panel system actually costs and how much it will save on your electric bill? Speak to our experts and get a comprehensive solar proposal to see your return on investment timeline. Learn if your roof qualifies for solar, along with the best home solar panels, installation, financing, and maintenance for your home.
             </div>
 
@@ -110,26 +110,26 @@ export const Landing = ({preForm, setPreForm}) => {
         <div className='details flex-center-col'>
 
             <details>
-                <summary className='medium'>Federal Solar Investment Tax Credit</summary>
+                <summary className='medium media-font-16'>Federal Solar Investment Tax Credit</summary>
 
-                <p className='small grey'>
+                <p className='small media-font-14 grey'>
                 The federal solar investment tax credit (ITC) will have the biggest impact on the cost of your solar installation and is good at least through the end of 2022. This credit is 26% off the entire cost of the system including equipment, labor, and permitting. But hurry! The ITC credit drops to 22% in 2023, and the tax credit for Residential Solar drops to 0% in 2024.
                 </p>
             
             </details>
 
             <details>
-                <summary className='medium'>Net Energy Metering in Virginia</summary>
+                <summary className='medium media-font-16'>Net Energy Metering in Virginia</summary>
 
-                <p className='small grey'>
+                <p className='small media-font-14 grey'>
                 The federal solar investment tax credit (ITC) will have the biggest impact on the cost of your solar installation and is good at least through the end of 2022. This credit is 26% off the entire cost of the system including equipment, labor, and permitting. But hurry! The ITC credit drops to 22% in 2023, and the tax credit for Residential Solar drops to 0% in 2024.
                 </p>
             </details>
 
             <details>
-                <summary className='medium'>Additional Solar Rebates</summary>
+                <summary className='medium media-font-16'>Additional Solar Rebates</summary>
 
-                <p className='small grey'>
+                <p className='small media-font-14 grey'>
                 The federal solar investment tax credit (ITC) will have the biggest impact on the cost of your solar installation and is good at least through the end of 2022. This credit is 26% off the entire cost of the system including equipment, labor, and permitting. But hurry! The ITC credit drops to 22% in 2023, and the tax credit for Residential Solar drops to 0% in 2024.
                 </p>
             </details>
@@ -140,9 +140,9 @@ export const Landing = ({preForm, setPreForm}) => {
             <img src={house} width="500px" />
 
             <div className='flex-col-align-cen inside-float-left'>
-                <div className='orange xsmall'>Safe Solar Financing for Virginians</div>
+                <div className='orange text-center media-font-12 xsmall'>Safe Solar Financing for Virginians</div>
                 <div className='space25' />
-                <div className='bold medium'>
+                <div className='bold medium media-font-22'>
                 Your Power. Your Choice.
                 </div>
                 <div className='space25' />
@@ -155,23 +155,23 @@ export const Landing = ({preForm, setPreForm}) => {
         </div>
 
         <div className='flex-center-col payment-option'>
-            <div className='medium bold'>Solar Payment Options</div>
+            <div className='medium media-font-22 bold'>Solar Payment Options</div>
             <div className='space25' />
             <div className='small'>
             Rising energy costs and falling equipment costs are making it easy for homeowners to justify owning their own solar power systems. BrightSuite offers easy payment options, and the average homeowner can expect thousands in savings and a great return on investment. We get you the best price from local Virginia solar installers. 
             </div>
         </div>
 
-        <div className='flex-center'>
+        <div className='flex-center flex-wrap'>
             <div className='cash-option'>
                 <div className='most-popular small'>Most Popular</div>
-                <div className='flex-align-cen orange medium bold'><img src={solarloan} /> &nbsp;&nbsp;Solar Loan</div>
+                <div className='flex-align-cen media-font-22 orange medium bold'><img src={solarloan} /> &nbsp;&nbsp;Solar Loan</div>
                 <div className='space25' />
-                <div className='medium'>
+                <div className='medium media-font-22'>
                 Finance your purchase with affordable monthly payments.
                 </div>
                 <div className='space25' />
-                <ul className='small'>
+                <ul className='small media-font-14'>
                     <li>Low interest rates.</li>
                     <li>Low monthly loan payment.</li>
                     <li>Maintenance options available.</li>
@@ -185,13 +185,13 @@ export const Landing = ({preForm, setPreForm}) => {
             </div>
 
             <div className='cash-option'>
-                <div className='flex-align-cen orange medium bold'><img src={cashpurchase} /> &nbsp;&nbsp;Cash Purchase</div>
+                <div className='flex-align-cen orange media-font-22 medium bold'><img src={cashpurchase} /> &nbsp;&nbsp;Cash Purchase</div>
                 <div className='space25' />
-                <div className='medium'>
+                <div className='medium media-font-22'>
                 Purchase your solar panels and see immediate monthly savings on your power bill.
                 </div>
                 <div className='space25' />
-                <ul className='small'>
+                <ul className='small media-font-14'>
                     <li>No monthly payment.</li>
                     <li>Maintenance options available.</li>
                     <li>Solar panel and workmanship warranty.</li>
@@ -219,7 +219,7 @@ export const Landing = ({preForm, setPreForm}) => {
 
         </div>
 
-        <div className='small grey padding-w12'>
+        <div className='small media-font-14 grey padding-w12 margin-bot-70'>
         BrightSuite is an unregulated affiliate of Dominion Energy but is not the same company. BrightSuite’s services are not regulated by a state’s Public Service Commission. Your choice of whether to participate in any BrightSuite offerings will not affect the price, availability, or terms of service from a Dominion Energy regulated utility and shall receive no preference or special treatment. A customer does not have to select BrightSuite services to continue to receive the same safe and reliable electric service or natural gas service from Dominion Energy.
         </div>
 
