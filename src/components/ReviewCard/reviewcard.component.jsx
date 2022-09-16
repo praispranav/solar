@@ -1,5 +1,5 @@
 import React from 'react';
-import staryellow from './staryello.png';
+import staryellow from '../../assets/rating5s.png';
 import './reviewcard.stylesheet.css';
 
 

@@ -7,6 +7,15 @@
   text-align: center;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .solar{
   width: 100%;
   height: 64px;
@@ -120,8 +129,17 @@
 }
 
 .cus-reviews{
-  width: 90%;
-  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 5%;
+  display: flex;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex-wrap: nowrap;
+}
+
+.cus-reviews::-webkit-scrollbar{
+  display: none;
 }
 
 .footer-img{

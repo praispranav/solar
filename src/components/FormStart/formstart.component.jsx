@@ -45,7 +45,7 @@ export const FormStart = ({formSubmited, setFormSubmited, name, setName}) => {
                 
                 </div>
 
-                <div className='cus-reviews flex-center'>
+                <div className='cus-reviews'>
 
                 <ReviewCard head="They were so helpful and patient" content="Sheryl was so helpful and patient as she helped me navigate medicare plan options and find what is best." name="Maurice C." />
 

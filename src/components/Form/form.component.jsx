@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './form.stylesheet.css';
-
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 import noshade from './noshade.png';
 import littleshade from './littleshade.png';
 import partialshade from './partialshade.png';
@@ -258,7 +259,7 @@ export const Form = ({setFormSubmited, setName}) => {
                         <input onChange={(e) => {setFormData({...formData, state : e.target.value})}} type="text" placeholder='State / Province / Region' className='width-100 light-grey small state' />
                     </div>
 
-                    <input onKeyDown={addAddress} type='text' placeholder='ZIP / Postal Code' className="address small" />
+                    <input onKeyDown={addAddress} type='number' placeholder='ZIP / Postal Code' className="address small" />
 
                     <div className='qualify-button medium'>Next</div>
                 
@@ -307,7 +308,8 @@ export const Form = ({setFormSubmited, setName}) => {
                     </div>
 
                     <input required onChange={(e)=>{setFormData({...formData, email : e.target.value})}} type='email' placeholder='Email Address' className="address small" />
-                    <input required onChange={(e)=>{setFormData({...formData, phone : e.target.value})}} type='phone' placeholder='Phone Number' className="address small" />
+                    <PhoneInput country={'us'} value='' onChange={phone => formData['phone'] = phone} containerStyle={{width: '100%', height: '64px', margin: '10px 0px', borderRadius: '10px'}} inputStyle={{width: '100%', height: '64px', fontSize: '16px'}} />
+                    
                 
                     <div className='xxsmall light-grey'>
                         By clicking Get My Free Quote, I agree to the <span className='bold'>Terms of Service</span> and <span className='bold'>Privacy Policy</span> and authorize up to 4 <span className='bold'>solar energy companies</span>, their contractors and partners to contact me with offers about solar product or service by telephone calls, emails, artificial voice, and pre-recorded/text messages, using an automated telephone technology, to the number and email I provided above, even if my number is a mobile number or is currently listed on any state, federal or corporate Do Not Call list. I 
