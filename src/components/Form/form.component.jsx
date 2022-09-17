@@ -64,6 +64,10 @@ export const Form = ({setFormSubmited, setName}) => {
     const mapApiJs = 'https://maps.googleapis.com/maps/api/js';
     const geocodeJson = 'https://maps.googleapis.com/maps/api/geocode/json';
 
+    const back = () => {
+        setFormStep(formStep - 1);
+    }
+
     const loadAsyncScript = (src) => {
         return new Promise(resolve => {
             const script = document.createElement("script");
@@ -216,6 +220,8 @@ export const Form = ({setFormSubmited, setName}) => {
                         <div onClick={() => {setFormData({...formData, shade : "Severe Shade"}); setFormStep(2)}} className='img-option'><img src={severeshade} />Severe Shade</div>
                     </div>
                 </div>
+
+                <div onClick={back} className="orange back"> &lt; Back</div>
             </section>
         )}
 
@@ -233,6 +239,8 @@ export const Form = ({setFormSubmited, setName}) => {
                     <div onClick={() => {setFormData({...formData,homeowner : "no"}); setFormStep(3)}} className='option'>No</div>
                 
                 </div>
+
+                <div onClick={back} className="orange back"> &lt; Back</div>
             </section>
         )}
 
@@ -248,18 +256,12 @@ export const Form = ({setFormSubmited, setName}) => {
                 
                     <input onChange={(e) => {setFormData({...formData, address : e.target.value})}} type='text' ref={searchInput} placeholder='Address' className="address small" />
 
-                    <div className='media-flex-center-col add-state'>
-                        <input onChange={(e) => {setFormData({...formData, street : e.target.value})}} type="text" placeholder='Street' className='light-grey width-100 small state' />
-
-                        <input onChange={(e) => {setFormData({...formData, state : e.target.value})}} type="text" placeholder='State / Province / Region' className='width-100 light-grey small state' />
-                    </div>
-
-                    <input onChange={(e) => {setFormData({...formData, zip : e.target.value})}} type='number' placeholder='ZIP / Postal Code' className="address small" />
-
-                    <div onClick={() => {setFormStep(4);}} className='qualify-button medium'>Next</div>
+                    <div onClick={back} className="orange back"> &lt; Back</div>  <div onClick={() => {setFormStep(4);}} className='qualify-button medium'>Next</div>
                 
                     <div className='light-grey small'>We'll use satellite imagery based on your address to develop an accurate solar estimate for your home. All information is kept completely confidential.</div>
                 </div>
+
+                
             </section>
         )}
 
@@ -282,7 +284,8 @@ export const Form = ({setFormSubmited, setName}) => {
                         <div onClick={() => {setFormData({...formData, provider : "Southside Electric Co-op"}); setFormStep(5)}} className='small option'>Southside Electric Co-op</div>
                         <div onClick={() => {setFormData({...formData, provider : "Other"}); setFormStep(5)}} className='small option'>Other</div>
                     </div>
-                
+
+                    <div onClick={back} className="orange back"> &lt; Back</div>
                 </div>
             </section>
         )}

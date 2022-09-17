@@ -157,3 +157,9 @@ input:hover{
 .flex-wrap{
     flex-wrap: wrap !important;
 }
+
+.back{
+    padding: 10px 0;
+    cursor: pointer;
+    
+}

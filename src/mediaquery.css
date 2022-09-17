@@ -131,4 +131,10 @@
         margin-bottom: 70px !important;
     }
 
+    .footer-links{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
 }

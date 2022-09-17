@@ -2,29 +2,57 @@ import React, { useEffect, useState } from 'react';
 import './postform.stylesheet.css';
 import ellipse from './ellipse.png';
 import call from './call.png';
+import agent from './agent.png';
+import check from './check.png';
+import loading from './loading.png';
+import location from './location.png';
+import user from './user.png';
 
+const load = 0;
 
-export const PostForm = ({name}) => {
+const PreLoader = ({name, add}) => {
 
-    const [min, setMin] = useState(3);
-    const [sec, setSec] = useState(0);
-
-    while(true) {
-        setTimeout(function () {    
-            if(min === 0 && sec === 0){
-                return;
-            }
-            else if(sec === 0){
-                setMin(min - 1);
-                setSec(59);
-            }
-            else{
-                setSec(sec - 1);
-            }
-        }, 1000)
     
 
-    return(<div className="post-form flex-center-col">
+    return <div className='preloader'>
+
+        <div className="large bold orange">Congratulations, We’ve Found Plans in your Area!</div>
+
+            <div id="div1" className='medium'>
+                <div>
+                    <img src={user} /> &nbsp;
+                    {name}
+                </div>
+
+                <img src={check} />
+            </div>
+
+            <div id="div2" className='medium'>
+                <div>
+                    <img src={location} /> &nbsp;
+                    {add}
+                </div>
+
+                <img src={check} />
+            </div>
+
+            <div id="div3" className='medium'>
+                <div>
+                    <img src={agent} /> &nbsp;
+                    Connecting you with a licensed agent...
+                </div>
+
+                <img src={loading} />
+            </div>
+        <div className='preloader-details'>
+
+        </div>
+    </div>
+}
+
+const Post = () => {
+
+    return <div className="post-form flex-center-col">
 
         <div className="orange media-font-22 large bold">
         Congratulations, {name}!
@@ -51,5 +79,31 @@ export const PostForm = ({name}) => {
         </div>
 
     </div>
-)}
+}
+
+
+export const PostForm = ({name}) => {
+
+    const [min, setMin] = useState(3);
+    const [sec, setSec] = useState(0);
+
+    while(true) {
+        setTimeout(function () {    
+            if(min === 0 && sec === 0){
+                return;
+            }
+            else if(sec === 0){
+                setMin(min - 1);
+                setSec(59);
+            }
+            else{
+                setSec(sec - 1);
+            }
+        }, 1000)
+    
+
+        return(
+            load? <Post /> : <PreLoader name={name}  />
+        )
+    }
     }
