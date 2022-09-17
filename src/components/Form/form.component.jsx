@@ -139,12 +139,7 @@ export const Form = ({setFormSubmited, setName}) => {
     // const sheetId = "0";
     // const clientEmail = "solar-55@clickdee.iam.gserviceaccount.com"
     // const doc = new GoogleSpreadsheet(spreadSheetId);
-    const addAddress = (e) => {
-        if(e.key === "Enter"){
-            setFormData({...formData, zip : e.target.value});
-            setFormStep(4);
-        }
-    }
+    
 
     // const handleSubmit = async (e) => {
     //     e.preventDefault();
@@ -259,9 +254,9 @@ export const Form = ({setFormSubmited, setName}) => {
                         <input onChange={(e) => {setFormData({...formData, state : e.target.value})}} type="text" placeholder='State / Province / Region' className='width-100 light-grey small state' />
                     </div>
 
-                    <input onKeyDown={addAddress} type='number' placeholder='ZIP / Postal Code' className="address small" />
+                    <input onChange={(e) => {setFormData({...formData, zip : e.target.value})}} type='number' placeholder='ZIP / Postal Code' className="address small" />
 
-                    <div className='qualify-button medium'>Next</div>
+                    <div onClick={() => {setFormStep(4);}} className='qualify-button medium'>Next</div>
                 
                     <div className='light-grey small'>We'll use satellite imagery based on your address to develop an accurate solar estimate for your home. All information is kept completely confidential.</div>
                 </div>
