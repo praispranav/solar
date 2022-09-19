@@ -7,18 +7,23 @@ import check from './check.png';
 import loading from './loading.png';
 import location from './location.png';
 import user from './user.png';
+import company from './company.png';
+import solar from './solar.png';
 
-const load = 0;
+
+let load = 0;
 
 const PreLoader = ({name, add}) => {
 
-    
-
     return <div className='preloader'>
 
-        <div className="large bold orange">Congratulations, We’ve Found Plans in your Area!</div>
+        <div className='preloader-details'>
 
-            <div id="div1" className='medium'>
+            <div className="large bold orange">Congratulations, We’ve Found Plans in your Area!</div>
+            
+            <div className='space25' />
+            
+            <div id="div1" className='medium preload-div'>
                 <div>
                     <img src={user} /> &nbsp;
                     {name}
@@ -27,7 +32,7 @@ const PreLoader = ({name, add}) => {
                 <img src={check} />
             </div>
 
-            <div id="div2" className='medium'>
+            <div id="div2" className='medium preload-div border-top'>
                 <div>
                     <img src={location} /> &nbsp;
                     {add}
@@ -36,21 +41,37 @@ const PreLoader = ({name, add}) => {
                 <img src={check} />
             </div>
 
-            <div id="div3" className='medium'>
+            <div id="div2" className='medium preload-div border-top'>
+                <div>
+                    <img src={company} /> &nbsp;
+                    Aetna | Blue Cross | Humana | United | Other
+                </div>
+
+                <img src={check} />
+            </div>
+
+            <div id="div2" className='medium preload-div border-top'>
+                <div>
+                    <img src={solar} /> &nbsp;
+                    New Solar 2022 Quotes
+                </div>
+
+                <img src={check} />
+            </div>
+
+            <div id="div3" className='medium preload-div border-top'>
                 <div>
                     <img src={agent} /> &nbsp;
                     Connecting you with a licensed agent...
                 </div>
 
-                <img src={loading} />
+                <img className='rotat' src={loading} />
             </div>
-        <div className='preloader-details'>
-
         </div>
     </div>
 }
 
-const Post = () => {
+const Post = ({name, sec, min}) => {
 
     return <div className="post-form flex-center-col">
 
@@ -82,10 +103,10 @@ const Post = () => {
 }
 
 
-export const PostForm = ({name}) => {
+export const PostForm = ({name, add}) => {
 
     const [min, setMin] = useState(3);
-    const [sec, setSec] = useState(0);
+    const [sec, setSec] = useState(3);
 
     while(true) {
         setTimeout(function () {    
@@ -93,6 +114,7 @@ export const PostForm = ({name}) => {
                 return;
             }
             else if(sec === 0){
+                load += 1;
                 setMin(min - 1);
                 setSec(59);
             }
@@ -103,7 +125,7 @@ export const PostForm = ({name}) => {
     
 
         return(
-            load? <Post /> : <PreLoader name={name}  />
+            load? <Post name={name} sec={sec} min={min} /> : <PreLoader name={name} add={add}  />
         )
     }
-    }
+}

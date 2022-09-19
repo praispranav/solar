@@ -6,16 +6,18 @@ import footer from './assets/footer.png'
 import './mediaquery.css';
 import { Landing } from './components/Landing/landing.component';
 import logo from './assets/logo.png';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 
 function App() {
   const [formSubmited, setFormSubmited] = useState(false);
   const [name, setName] = useState('');
+  const [cusAdd, setCusAdd] = useState('');
   const [preForm, setPreForm] = useState(true);
 
   const Decide = () =>(
     <div>
-      {formSubmited? <PostForm name={name} /> : <FormStart setFormSubmited={setFormSubmited} setName={setName} />}
+      {formSubmited? <PostForm name={name} add={cusAdd} /> : <FormStart setFormSubmited={setFormSubmited} setCusAdd={setCusAdd} setName={setName} />}
     </div>
   )
 
@@ -26,8 +28,12 @@ function App() {
         <img src={logo} />&nbsp;
         <div className='small bold'>Solar Panel Quotes</div>
       </div>
-      
-      {preForm? <Landing preForm={preForm} setPreForm={setPreForm} /> : <Decide/> }
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Landing preForm={preForm} setPreForm={setPreForm} />}  />
+          <Route path="/form" element={<Decide />} />
+        </Routes>
+      </Router>
       <footer>
         <div className="bg-green">
           <img src={footer} className="footer-img" />

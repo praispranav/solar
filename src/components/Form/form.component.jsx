@@ -54,13 +54,13 @@ const extractAddress = (place) => {
 
 
 
-export const Form = ({setFormSubmited, setName}) => {
+export const Form = ({setFormSubmited, setName, setCusAdd}) => {
     const [formStep, setFormStep] = useState(0);
     const [formData, setFormData] = useState({});
     const [address, setAddress] = useState("");
     const searchInput = useRef(null);
 
-    const apiKey = process.env.VITE_APP_GMAP_API_KEY;
+    const apiKey = "AIzaSyASykO9iGndQinKKn0q0JWjjTgs628bKuY";
     const mapApiJs = 'https://maps.googleapis.com/maps/api/js';
     const geocodeJson = 'https://maps.googleapis.com/maps/api/geocode/json';
 
@@ -176,7 +176,11 @@ export const Form = ({setFormSubmited, setName}) => {
             body: JSON.stringify(formData)
         };
         fetch('https://script.google.com/macros/s/AKfycbyolGwdRFjV6TDNWkPNW8ijXthFTPwJFP_SRGxDa9z9rxsOYdVI9851u1cANyWDvRPDbw/exec', requestOptions)
-            .then(response => (setFormSubmited(true), setName(formData.fname)))
+            .then(response => {
+                setFormSubmited(true); 
+                setName(formData.fname);
+                setCusAdd(formData.street + ", " + formData.state);
+            })
     }
 
     return(
@@ -221,7 +225,7 @@ export const Form = ({setFormSubmited, setName}) => {
                     </div>
                 </div>
 
-                <div onClick={back} className="orange back"> &lt; Back</div>
+                {/* <div onClick={back} className="orange back"> &lt; Back</div> */}
             </section>
         )}
 
@@ -240,7 +244,7 @@ export const Form = ({setFormSubmited, setName}) => {
                 
                 </div>
 
-                <div onClick={back} className="orange back"> &lt; Back</div>
+                {/* <div onClick={back} className="orange back"> &lt; Back</div> */}
             </section>
         )}
 
@@ -256,9 +260,19 @@ export const Form = ({setFormSubmited, setName}) => {
                 
                     <input onChange={(e) => {setFormData({...formData, address : e.target.value})}} type='text' ref={searchInput} placeholder='Address' className="address small" />
 
-                    <div onClick={back} className="orange back"> &lt; Back</div>  <div onClick={() => {setFormStep(4);}} className='qualify-button medium'>Next</div>
+                    <div className='media-flex-center-col add-state'>
+                        <input disabled onChange={(e) => {setFormData({...formData, street : e.target.value})}} type="text" placeholder='Street' className='light-grey width-100 small state' />
+                        <input disabled onChange={(e) => {setFormData({...formData, state : e.target.value})}} type="text" placeholder='State / Province / Region' className='width-100 light-grey small state' />
+                    </div>
+
+                    <input type='text' disabled placeholder='ZIP / Postal Code' className="address small" />                    
                 
                     <div className='light-grey small'>We'll use satellite imagery based on your address to develop an accurate solar estimate for your home. All information is kept completely confidential.</div>
+                
+                    <div className='flex-spbet'>
+                        <div onClick={back} className="orange back"> &lt; Back</div>  
+                        <div onClick={() => {setFormStep(4);}} className='continue medium'>Conitue</div>
+                    </div>
                 </div>
 
                 
@@ -285,7 +299,7 @@ export const Form = ({setFormSubmited, setName}) => {
                         <div onClick={() => {setFormData({...formData, provider : "Other"}); setFormStep(5)}} className='small option'>Other</div>
                     </div>
 
-                    <div onClick={back} className="orange back"> &lt; Back</div>
+                    {/* <div onClick={back} className="orange back"> &lt; Back</div> */}
                 </div>
             </section>
         )}

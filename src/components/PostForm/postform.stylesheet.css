@@ -30,4 +30,57 @@
     position: absolute;
     top: 14%;
     left: 12.5%;
+    animation: 5s comein forward;
+    animation-delay: 3s;
+}
+
+.rotat{
+    animation: 2s rotate infinite;
+}
+
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(-360deg);
+    }
+}
+
+.preloader-details{
+    width: 100%;
+    background-color: #fefdfb;
+    padding: 7% 17%;
+}
+
+.preloader-details .preload-div{
+    display: flex;
+    font-size: 20px !important;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    padding: 7px 0;
+}
+
+@keyframes comein {
+    0%{
+        visibility: none;
+        transform: translateY(-30px);
+    }
+
+    60%{
+        visibility: visible;
+        display: flex;
+        transform: translateY(0);
+    }
+}
+
+.preloader-details .border-top{
+    border-top: 1px solid #EEEEEE;
+}
+
+.preloader-details > div > img, .preloader-details > div > div > img{
+    width: 24px;
+    height: 24px;
 }

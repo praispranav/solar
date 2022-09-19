@@ -6,14 +6,14 @@ import { PreForm } from '../PreForm/preform.component';
 import { ReviewCard } from '../ReviewCard/reviewcard.component';
 
 
-export const FormStart = ({formSubmited, setFormSubmited, name, setName}) => {
+export const FormStart = ({setCusAdd, setFormSubmited, setName}) => {
 
     const [showForm, setShowForm] = useState(false);
 
     return(
         <div>
             <div className='stepform flex-center'>
-                {showForm? <Form setFormSubmited={setFormSubmited} setName={setName} /> : <PreForm showForm={showForm} setShowForm={setShowForm} />}
+                {showForm? <Form setCusAdd={setCusAdd} setFormSubmited={setFormSubmited} setName={setName} /> : <PreForm showForm={showForm} setShowForm={setShowForm} />}
             </div>
 
             <div className='review flex-center-col'>

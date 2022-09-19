@@ -1,7 +1,7 @@
 import React from 'react';
 import './landing.stylesheet.css';
 import light from '../PreForm/light.png';
-
+import {useNavigate} from 'react-router-dom';
 import im1 from './image1.png';
 import im2 from './image2.png';
 import im3 from './image3.png';
@@ -16,9 +16,10 @@ import cashpurchase from './cash-purchase.png';
 
 
 export const Landing = ({preForm, setPreForm}) => {
+    const navigate = useNavigate();
 
     const pre = () => {
-        setPreForm(false);
+        navigate("/form");
     }
 
     return(<div className="landing flex-center-col">

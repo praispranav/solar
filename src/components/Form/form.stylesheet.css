@@ -72,7 +72,7 @@ input:hover{
     margin: 10px 0;
 }
 
-input:hover{
+.question > input:hover{
     border: 1px solid #FB923C;
 }
 
@@ -152,6 +152,24 @@ input:hover{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+}
+
+.continue{
+    width: 150px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: #FB923C;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.continue:hover{
+    transform: scale(1.05);
 }
 
 .flex-wrap{
