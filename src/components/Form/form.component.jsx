@@ -8,6 +8,7 @@ import partialshade from './partialshade.png';
 import severeshade from './severeshade.png'
 
 
+
 const extractAddress = (place) => {
 
     const address = {
@@ -58,7 +59,7 @@ export const Form = ({setFormSubmited, setName, setCusAdd}) => {
     const [formStep, setFormStep] = useState(0);
     const [formData, setFormData] = useState({});
     const [address, setAddress] = useState("");
-    const searchInput = useRef(null);
+    const searchInput = useRef();
 
     const apiKey = "AIzaSyASykO9iGndQinKKn0q0JWjjTgs628bKuY";
     const mapApiJs = 'https://maps.googleapis.com/maps/api/js';
@@ -99,7 +100,12 @@ export const Form = ({setFormSubmited, setName, setCusAdd}) => {
 
     // init autocomplete
     const initAutocomplete = () => {
-        if (!searchInput.current) return;
+        console.log(searchInput.current);
+        // console.log(searchInput)
+        // if (!searchInput.current) {
+        //     console.log("no input");
+        //     return;
+        // }
 
         const autocomplete = new window.google.maps.places.Autocomplete(searchInput.current);
         autocomplete.setFields(["address_component", "geometry"]);
@@ -258,7 +264,7 @@ export const Form = ({setFormSubmited, setName, setCusAdd}) => {
                 <div className='question felx-center-col'>
                     <div className='head media-font-20 orange medium bold'>What is your Address?</div>
                 
-                    <input onChange={(e) => {setFormData({...formData, address : e.target.value})}} type='text' ref={searchInput} placeholder='Address' className="address small" />
+                    <input onKeyDown={(e)=> {searchInput.current = e.target}} ref={searchInput} type='text'  placeholder='Address' className="address small" />
 
                     <div className='media-flex-center-col add-state'>
                         <input disabled onChange={(e) => {setFormData({...formData, street : e.target.value})}} type="text" placeholder='Street' className='light-grey width-100 small state' />
