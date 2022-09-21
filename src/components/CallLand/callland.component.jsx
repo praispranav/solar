@@ -33,6 +33,24 @@ export const CallLand = () => {
             </div>
         </div>
 
+        <div className='call-land-float'>
+            <div>
+            We're Available Now
+            </div>
+
+            <div>
+            Our Fully Trained Experts Are Ready to Help You. <br/>Call Now For Your Risk-FREE Quote.
+            </div>
+
+            <div className='number'>
+                <span className='small grey'>Call us at</span> &nbsp;
+                <img src={call_icon} /> &nbsp;
+                <span className='orange bold small'>866-951-5443</span>
+            </div>
+
+            <img src={call_icon} className="call-land-float-icon" />
+        </div>
+
         <div className='call-land-main flex-center-col'>
 
             <div className='bold orange font-40'>
@@ -114,19 +132,108 @@ export const CallLand = () => {
 
         <div className='call-land-process' >
 
-            <div className='orange xsmall'>OUR PROCESS</div>
-
-            <div className='bold medium'>How exactly we work?</div>
-
-            <div className='small grey'>
+            <div className='orange xsmall text-align-center'>OUR PROCESS</div>
+            <div className="space10" />
+            <div className='bold medium text-align-center'>How exactly we work?</div>
+            <div className='space25' />
+            <div className='small grey text-align-center'>
                 Our vast network of exterminators has been connected to locals just like you, thanks to our 24/7 call service. Here’s what to do when you’re in a pest pickle.
             </div>
-
-
+            <div className='space25' />
+            <div className='call-land-process-step'>
+                <div className='medium bold'>
+                    <div className='process-icon'>1</div>Contact Our Team
+                </div>
+                <div className='grey pad-50 small'>
+                Call our 24-hour customer support and dispatch center. Tell us about your electrical needs and what type of work you need done.
+                </div>
+            </div>
+            <div className='space25' />
+            <div className='space25' />
+            <div className='call-land-process-step'>
+                <div className='medium bold'>
+                Schedule Your Appointment
+                </div>
+                <div className='grey pad-50 small'>
+                Next, our agents will try to instantly connect you with one of our local electrical contractors to schedule your appointment.
+                </div>
+            </div>
+            <div className='space25' />
+            <div className='space25' />
+            <div className='call-land-process-step'>
+                <div className='medium bold'>
+                Service Completion
+                </div>
+                <div className='grey pad-50 small'>
+                If you decide to proceed, your electrician will provide a firm quote and perform the tasks needed to complete your job.
+                </div>
+            </div>
 
         </div>
         
-        <div className='call-land-faq'></div>
+        <div className='call-land-faq'>
+            <div>
+
+                <details>
+                    <summary className='medium media-font-16'>Federal Solar Investment Tax Credit</summary>
+
+                    <p className='small media-font-14 grey'>
+                    The federal solar investment tax credit (ITC) will have the biggest impact on the cost of your solar installation and is good at least through the end of 2022. This credit is 26% off the entire cost of the system including equipment, labor, and permitting. But hurry! The ITC credit drops to 22% in 2023, and the tax credit for Residential Solar drops to 0% in 2024.
+                    </p>
+                
+                </details>
+
+                <details>
+                    <summary className='medium media-font-16'>Net Energy Metering in Virginia</summary>
+
+                    <p className='small media-font-14 grey'>
+                    The federal solar investment tax credit (ITC) will have the biggest impact on the cost of your solar installation and is good at least through the end of 2022. This credit is 26% off the entire cost of the system including equipment, labor, and permitting. But hurry! The ITC credit drops to 22% in 2023, and the tax credit for Residential Solar drops to 0% in 2024.
+                    </p>
+                
+                </details>
+
+                <details>
+                    <summary className='medium media-font-16'>Additional Solar Rebates</summary>
+
+                    <p className='small media-font-14 grey'>
+                    The federal solar investment tax credit (ITC) will have the biggest impact on the cost of your solar installation and is good at least through the end of 2022. This credit is 26% off the entire cost of the system including equipment, labor, and permitting. But hurry! The ITC credit drops to 22% in 2023, and the tax credit for Residential Solar drops to 0% in 2024.
+                    </p>
+                
+                </details>
+
+
+            </div>
+            <div>
+
+                <details>
+                    <summary className='medium media-font-16'>Net Energy Metering in Virginia</summary>
+
+                    <p className='small media-font-14 grey'>
+                    The federal solar investment tax credit (ITC) will have the biggest impact on the cost of your solar installation and is good at least through the end of 2022. This credit is 26% off the entire cost of the system including equipment, labor, and permitting. But hurry! The ITC credit drops to 22% in 2023, and the tax credit for Residential Solar drops to 0% in 2024.
+                    </p>
+                
+                </details>
+
+                <details>
+                    <summary className='medium media-font-16'>Additional Solar Rebates</summary>
+
+                    <p className='small media-font-14 grey'>
+                    The federal solar investment tax credit (ITC) will have the biggest impact on the cost of your solar installation and is good at least through the end of 2022. This credit is 26% off the entire cost of the system including equipment, labor, and permitting. But hurry! The ITC credit drops to 22% in 2023, and the tax credit for Residential Solar drops to 0% in 2024.
+                    </p>
+                
+                </details>
+
+                <details>
+                    <summary className='medium media-font-16'>Net Energy Metering in Virginia</summary>
+
+                    <p className='small media-font-14 grey'>
+                    The federal solar investment tax credit (ITC) will have the biggest impact on the cost of your solar installation and is good at least through the end of 2022. This credit is 26% off the entire cost of the system including equipment, labor, and permitting. But hurry! The ITC credit drops to 22% in 2023, and the tax credit for Residential Solar drops to 0% in 2024.
+                    </p>
+                
+                </details>
+
+            </div>
+        </div>
 
         <div className='flex-center-col payment-option'>
             <div className='medium media-font-22 bold'>Solar Payment Options</div>

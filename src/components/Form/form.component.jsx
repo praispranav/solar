@@ -1,177 +1,104 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './form.stylesheet.css';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import noshade from './noshade.png';
 import littleshade from './littleshade.png';
 import partialshade from './partialshade.png';
-import severeshade from './severeshade.png'
-
-
-
-const extractAddress = (place) => {
-
-    const address = {
-        city: "",
-        state: "",
-        zip: "",
-        country: "",
-        plain() {
-            const city = this.city ? this.city + ", " : "";
-            const zip = this.zip ? this.zip + ", " : "";
-            const state = this.state ? this.state + ", " : "";
-            return city + zip + state + this.country;
-        }
-        }
-    
-        if (!Array.isArray(place?.address_components)) {
-        return address;
-        }
-    
-        place.address_components.forEach(component => {
-        const types = component.types;
-        const value = component.long_name;
-    
-        if (types.includes("locality")) {
-            address.city = value;
-        }
-    
-        if (types.includes("administrative_area_level_2")) {
-            address.state = value;
-        }
-    
-        if (types.includes("postal_code")) {
-            address.zip = value;
-        }
-    
-        if (types.includes("country")) {
-            address.country = value;
-        }
-    
-        });
-    
-    return address;
-}
+import severeshade from './severeshade.png';
+import {useJsApiLoader, Autocomplete} from '@react-google-maps/api'
+import { useRef } from 'react';
 
 
 
 export const Form = ({setFormSubmited, setName, setCusAdd}) => {
     const [formStep, setFormStep] = useState(0);
     const [formData, setFormData] = useState({});
-    const [address, setAddress] = useState("");
-    const searchInput = useRef();
+    var [address, setAddress] = useState({});
+    var autocomplete = null;
+    var addInput = useRef();
 
     const apiKey = "AIzaSyASykO9iGndQinKKn0q0JWjjTgs628bKuY";
-    const mapApiJs = 'https://maps.googleapis.com/maps/api/js';
-    const geocodeJson = 'https://maps.googleapis.com/maps/api/geocode/json';
+    // const mapApiJs = 'https://maps.googleapis.com/maps/api/js';
+    // const geocodeJson = 'https://maps.googleapis.com/maps/api/geocode/json';
 
     const back = () => {
         setFormStep(formStep - 1);
     }
 
-    const loadAsyncScript = (src) => {
-        return new Promise(resolve => {
-            const script = document.createElement("script");
-            Object.assign(script, {
-                type: "text/javascript",
-                async: true,
-                src
-            })
-            script.addEventListener("load", () => resolve(script));
-            document.head.appendChild(script);
-            })
+    const next = () => {
+        setFormStep(4); 
+        setFormData({...formData, street: address["city"], state : address["state"], address: addInput.current.value})
     }
 
-    // init gmap script
-    const initMapScript = () => {
-        // if script already loaded
-        if(window.google) {
-        return Promise.resolve();
-        }
-        const src = `${mapApiJs}?key=${apiKey}&libraries=places&v=weekly`;
-        return loadAsyncScript(src);
-    }
+    const { isLoaded } = useJsApiLoader({
+        googleMapsApiKey: apiKey,
+        libraries: ['places'],
+    })   
 
-    // do something on address change
-    const onChangeAddress = (autocomplete) => {
-        const place = autocomplete.getPlace();
-        setAddress(extractAddress(place));
-    }
+    const extractAddress = (place) => {
 
-    // init autocomplete
-    const initAutocomplete = () => {
-        console.log(searchInput.current);
-        // console.log(searchInput)
-        // if (!searchInput.current) {
-        //     console.log("no input");
-        //     return;
-        // }
-
-        const autocomplete = new window.google.maps.places.Autocomplete(searchInput.current);
-        autocomplete.setFields(["address_component", "geometry"]);
-        autocomplete.addListener("place_changed", () => onChangeAddress(autocomplete));
-
-    }
-
-    const reverseGeocode = ({ latitude: lat, longitude: lng}) => {
-        const url = `${geocodeJson}?key=${apiKey}&latlng=${lat},${lng}`;
-        searchInput.current.value = "Getting your location...";
-        fetch(url)
-            .then(response => response.json())
-            .then(location => {
-                const place = location.results[0];
-                const _address = extractAddress(place);
-                setAddress(_address);
-                searchInput.current.value = _address.plain();
-                })
-        }
+        const addr = {
+            city: "",
+            state: "",
+            zip: "",
+            plain() {
+                const city = this.city ? this.city + ", " : "";
+                const zip = this.zip ? this.zip + ", " : "";
+                const state = this.state ? this.state + ", " : "";
+            }
+            }
         
+            // if (!Array.isArray(place?.address_components)) {
+            //     setAddress(addr);
+            //     return;
+            // }
         
-    const findMyLocation = () => {
-        if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-            reverseGeocode(position.coords)
-        })
+            place.address_components.forEach(component => {
+            const types = component.types;
+            const value = component.long_name;
+        
+            if (types.includes("locality")) {
+                addr.city = value;
+                setFormData({...formData, street : value});
+            }
+        
+            if (types.includes("administrative_area_level_2")) {
+                addr.state = value;
+                setFormData({...formData, state : value});
+            }
+        
+            if (types.includes("postal_code")) {
+                addr.zip = value;
+                setFormData({...formData, zip : value});
+            }
+
+            if(types.includes("formatted_address")){
+                setFormData({...formData, address: value});
+            }
+        
+            });
+        
+        setAddress(addr);
+        return;
+    }
+
+    const load = (complete) => {
+        autocomplete = complete;
+    }
+
+    const change = () => {
+        if (autocomplete !== null) {
+            console.log(autocomplete.getPlace());
+            extractAddress(autocomplete.getPlace());
+            console.log(address)
+            console.log(formData["address"]);
+            console.log(formData["zip"]);
+            console.log(formData["street"]);
+            console.log(formData["state"]);
         }
     }
-    
-    
-    
-    
-    
-    // load map script after mounted
-    useEffect(() => {
-        initMapScript().then(() => initAutocomplete())
-    }, []);
 
-    // const privateKey = "c74f1b2efb6d7377d8306082a930f9368ea2cc5a";
-    // const spreadSheetId = "19-qrUc2n7mUO8iMvIY-PqQJS79LU_sWuzZtyIT6KzAM";
-    // const sheetId = "0";
-    // const clientEmail = "solar-55@clickdee.iam.gserviceaccount.com"
-    // const doc = new GoogleSpreadsheet(spreadSheetId);
-    
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     // axios.post('https://sheet.best/api/sheets/95bdc3ff-b5b8-44ab-bdb3-953037019d0e', formData).then((response)=>{
-    //     //     setName(formData['fname']);
-    //     //     setFormSubmited(true);
-    //     // })
-
-    //     try {
-    //         await doc.useServiceAccountAuth({
-    //             client_email: clientEmail,
-    //             private_key: privateKey,
-    //         });
-    //         // loads document properties and worksheets
-    //         await doc.loadInfo();
-        
-    //         const sheet = doc.sheetsById[sheetId];
-    //         const result = await sheet.addRow(formData);
-    //         } catch (e) {
-    //             console.error('Error: ', e);
-    //         }
-    // }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -185,7 +112,7 @@ export const Form = ({setFormSubmited, setName, setCusAdd}) => {
             .then(response => {
                 setFormSubmited(true); 
                 setName(formData.fname);
-                setCusAdd(formData.street + ", " + formData.state);
+                setCusAdd(formData["street"] + ", " + formData["state"]);
             })
     }
 
@@ -263,21 +190,22 @@ export const Form = ({setFormSubmited, setName, setCusAdd}) => {
 
                 <div className='question felx-center-col'>
                     <div className='head media-font-20 orange medium bold'>What is your Address?</div>
-                
-                    <input onKeyDown={(e)=> {searchInput.current = e.target}} ref={searchInput} type='text'  placeholder='Address' className="address small" />
+                    <Autocomplete onLoad={load} onPlaceChanged={change}>
+                        <input type='text' ref={addInput} onChangeCapture={(e)=>{setFormData({...formData, address: e.target.value})}}  placeholder='Address' className="address small" />
+                    </Autocomplete>
 
                     <div className='media-flex-center-col add-state'>
-                        <input disabled onChange={(e) => {setFormData({...formData, street : e.target.value})}} type="text" placeholder='Street' className='light-grey width-100 small state' />
-                        <input disabled onChange={(e) => {setFormData({...formData, state : e.target.value})}} type="text" placeholder='State / Province / Region' className='width-100 light-grey small state' />
+                        <input disabled value={address["city"]}  type="text" placeholder='Street' className='width-100 small state' />
+                        <input disabled value={address["state"]} type="text" placeholder='State / Province / Region' className='width-100 small state' />
                     </div>
 
-                    <input type='text' disabled placeholder='ZIP / Postal Code' className="address small" />                    
+                    <input type='text' value={address["zip"]} disabled placeholder='ZIP / Postal Code' className="address small" />                    
                 
                     <div className='light-grey small'>We'll use satellite imagery based on your address to develop an accurate solar estimate for your home. All information is kept completely confidential.</div>
                 
                     <div className='flex-spbet'>
                         <div onClick={back} className="orange back"> &lt; Back</div>  
-                        <div onClick={() => {setFormStep(4);}} className='continue medium'>Conitue</div>
+                        <div onClick={next} className='continue medium'>Conitue</div>
                     </div>
                 </div>
 
