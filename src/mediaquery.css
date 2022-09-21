@@ -25,7 +25,15 @@
         font-size: 12px;
     }
 
+    .media-font-10{
+        font-size: 10px;
+    }
+
     .media-flex-center-col{
+        flex-direction: column;
+    }
+
+    .media-flex-left-col{
         flex-direction: column;
     }
 
@@ -135,6 +143,27 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+    }
+
+    .dis-none{
+        display: none;
+    }
+
+    .call-land .solar-call .logo .logo-img{
+        width: 22px;
+    }
+
+    .call-land .solar-call .number img{
+        width: 16px;
+    }
+
+    .call-land-faq div{
+        width: 95% !important;
+    }
+
+    .media-pad-h-7{
+        padding-left: 7% !important;
+        padding-right: 7% !important;
     }
 
 }

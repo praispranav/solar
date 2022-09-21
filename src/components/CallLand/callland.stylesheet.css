@@ -39,7 +39,6 @@
     border-radius: 100%;
     font-size: 12px;
     color: #EA580C;
-    background-color: ;
 }
 
 .call-land-main{
@@ -67,7 +66,7 @@
     border-radius: 20px;
     max-width: 350px;
     margin: 10px 0;
-    margin-left: 40px; 
+    margin-left: 60px; 
 }
 
 .call-land-float .number{
@@ -77,7 +76,9 @@
 }
 
 .call-land-float-icon{
-    width: 40px;
+    position: relative;
+    bottom: 14px;
+    right: 5px;
 }
 
 .call-land-sponsers{
@@ -86,6 +87,11 @@
     width: 100%;
     justify-content: space-evenly;
     padding: 25px 0;
+    flex-wrap: wrap;
+}
+
+.call-land-sponsers img{
+    margin: 5px 7px;
 }
 
 .call-land-service{

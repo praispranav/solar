@@ -15,25 +15,26 @@ import { ReviewCard } from '../ReviewCard/reviewcard.component';
 import solarloan from '../Landing/solar-loan.png';
 import cashpurchase from '../Landing/cash-purchase.png';
 import footer from '../../assets/footer.png'
+import float from './float.png';
 
 
 export const CallLand = () => {
     return (<div className='call-land'>
         <div className='solar-call'>
             <div className='logo'>
-                <img src={logo} /> &nbsp; 
-                <span className='bold orange small'>SOLAR PANEL</span> &nbsp;
-                <span className='orange xxsmall'>Quotes</span>
+                <img src={logo} className="logo-img" /> &nbsp; 
+                <span className='bold orange media-font-12 small'>SOLAR PANEL</span> &nbsp;
+                <span className='orange media-font-10 xxsmall'>Quotes</span>
             </div>
 
             <div className='number'>
-                <span className='small grey'>Call us at</span> &nbsp;
+                <span className='small grey dis-none'>Call us at</span> &nbsp;
                 <img src={call_icon} /> &nbsp;
-                <span className='orange bold small'>866-951-5443</span>
+                <span className='orange media-font-12 bold small'>866-951-5443</span>
             </div>
         </div>
 
-        <div className='call-land-float'>
+        <div className='call-land-float dis-none'>
             <div>
             We're Available Now
             </div>
@@ -48,26 +49,26 @@ export const CallLand = () => {
                 <span className='orange bold small'>866-951-5443</span>
             </div>
 
-            <img src={call_icon} className="call-land-float-icon" />
+            <img src={float} className="call-land-float-icon" />
         </div>
 
-        <div className='call-land-main flex-center-col'>
+        <div className='call-land-main flex-center-col media-pad-h-5'>
 
-            <div className='bold orange font-40'>
+            <div className='bold media-font-22 orange font-40'>
             Delhi, DL Pest Exterminator
             </div>
             <div className='space25' />
-            <div className='medium'>
+            <div className='medium media-font-20'>
             Delhi Number 1 Pest Exterminator is just <span className='bold'>One Call Away!</span>
             </div>
             <div className='space25' />
-            <div className='medium'>
+            <div className='medium media-font-14'>
             For Fast & Easy, Same-Day Service <br/>Call Now to Get Rid of Those Pesky Pests Today!
             </div>
             <div className='space25' />
             <img src={number} />
             <div className='space25' />
-            <div className='flex-spbet'>
+            <div className='flex-spbet media-font-12 media-flex-left-col'>
                 <div className='flex-center'>
                     <img src={tick} /> &nbsp;
                     Zero-Obligation Estimates
@@ -97,7 +98,7 @@ export const CallLand = () => {
 
         </div>
 
-        <div className='call-land-service'>
+        <div className='call-land-service media-pad-h-7'>
 
             <div className='orange xsmall'>TOP-NOTCH Service!</div>
             <div className='space25' />
@@ -114,7 +115,7 @@ export const CallLand = () => {
             <div className='space25' />
             <div className='space25' />
 
-            <div className='call-land-service-number'>
+            <div className='call-land-service-number media-flex-center-col'>
 
                 <div>
                     <div className='bold small text-align-left'>We're Available Now</div>
@@ -130,7 +131,7 @@ export const CallLand = () => {
 
         </div>
 
-        <div className='call-land-process' >
+        <div className='call-land-process media-pad-h-7' >
 
             <div className='orange xsmall text-align-center'>OUR PROCESS</div>
             <div className="space10" />
@@ -142,7 +143,7 @@ export const CallLand = () => {
             <div className='space25' />
             <div className='call-land-process-step'>
                 <div className='medium bold'>
-                    <div className='process-icon'>1</div>Contact Our Team
+                    {/* <div className='process-icon'></div> */} Contact Our Team
                 </div>
                 <div className='grey pad-50 small'>
                 Call our 24-hour customer support and dispatch center. Tell us about your electrical needs and what type of work you need done.
@@ -171,7 +172,7 @@ export const CallLand = () => {
 
         </div>
         
-        <div className='call-land-faq'>
+        <div className='call-land-faq media-flex-center-col'>
             <div>
 
                 <details>
@@ -329,20 +330,20 @@ export const CallLand = () => {
 
         <div className="call-land-number flex-center-col">
 
-            <div className='font-40 bold orange'>
+            <div className='font-40 bold media-font-22 orange'>
             Delhi, DL Pest Exterminator
             </div>
-            <div className='medium'>
+            <div className='medium media-font-20'>
             Delhi Number 1 Pest Exterminator is just <span className='bold'>One Call Away!</span>
             </div>
             <div className='space25'/>
-            <div className='medium'>
+            <div className='medium media-font-14'>
             For Fast & Easy, Same-Day Service <br/>Call Now to Get Rid of Those Pesky Pests Today!
             </div>
             <div className='space25' />
             <img src={number} />
             <div className='space25' />
-            <div className='flex-spbet'>
+            <div className='flex-spbet media-flex-center-col media-font-12'>
                 <div className='flex-center'>
                     <img src={tick} /> &nbsp;
                     Zero-Obligation Estimates
