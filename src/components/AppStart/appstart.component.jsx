@@ -7,6 +7,7 @@ import '../../mediaquery.css';
 import { Landing } from '../Landing/landing.component';
 import logo from '../../assets/logo.png';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { CompanyComparision } from '../CompanyComparision/companycomparision.component';
 
 
 export function AppStart() {
@@ -32,6 +33,7 @@ export function AppStart() {
             <Routes>
             <Route exact path="/" element={<Landing preForm={preForm} setPreForm={setPreForm} />}  />
             <Route path="/form" element={<Decide />} />
+            <Route path='/companies' element={<CompanyComparision />} />
             </Routes>
         
         <footer>
@@ -50,7 +52,7 @@ export function AppStart() {
 
             </div>
 
-            <div className="xxsmall footer-dis">
+            <div className="xxsmall grey footer-dis">
             Disclaimer: senioradvantage.co is a referral source that provides information and access to a helpline to match consumers with companies that may provide certain insurance coverage to them. senioradvantage.co does not act as an insurance broker and does not make decisions about insurance coverage that may be available to you. senioradvantage.co doesn’t promise a specific outcome or the results you may achieve by calling the helpline. The helpline is free to call but the services or programs that you pursue may have costs associated with them. Neither senioradvantage.co nor any of the supplemental insurance plans to which you may be connected are endorsed by the U.S. Government or the federal Medicare program.
             </div>
         </footer>

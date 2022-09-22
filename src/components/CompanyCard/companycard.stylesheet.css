@@ -1,0 +1,93 @@
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+.company-card{
+    width: 100%;
+    padding: 20px 40px;
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: 0 0 15px 1px rgba(128, 128, 128, 0.233);
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin: 30px 0;
+}
+
+.popular{
+    color: white;
+    font-size: 24px;
+    height: 55px;
+    width: 100%;
+    position: absolute;
+    font-weight: 700;
+    background-color: #FB923C;
+    left: 0;
+    top: -52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px 7px 0 0;
+}
+
+.company-card > img{
+    width: 160px;
+}
+
+.hashtag{
+    position: absolute;
+    top: 5px;
+    left: 10px;
+}
+
+.divider{
+    height: 70px;
+    width: 2px;
+    background-color: #C0C0C0;
+    margin: auto 0;
+}
+
+.ratings{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.getbutton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.company-get-quote{
+    background-color: #FB923C;
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    width: 190px;
+    height: 50px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.rate-desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.rate-desc > .desc > div{
+    color: #414141;
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    min-width: 370px;
+    margin: 4px 0;
+}

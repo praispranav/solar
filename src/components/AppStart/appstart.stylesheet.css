@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;&display=swap');
 
 
 
@@ -130,17 +130,24 @@ input[type=number] {
     margin: 0 7px;
 }
 
-.cus-reviews {
+.center-align{
     width: 100%;
-    padding: 0 5%;
-    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+}
+
+.cus-reviews {
+    padding: 20px 5%;
+    margin: 0 auto;
+    display: inline-flex;
     scroll-behavior: smooth;
     overflow-x: auto;
     overflow-y: hidden;
     flex-wrap: nowrap;
 }
 
-.cus-reviews::-webkit-scrollbar {
+.cus-reviews::-webkit-scrollbar, .center-align::-webkit-scrollbar {
     display: none;
 }
 
