@@ -6,7 +6,9 @@
 .preform{
     padding: 100px 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(0deg, rgba(253, 244, 237, 0.9), rgba(253, 244, 237, 0.9));
+    background: linear-gradient(0deg, rgba(253, 244, 237, 0.9), rgba(253, 244, 237, 0.9)), url('../../assets/image.jpg');
+    background-position: center;
+    background-size: cover;
 }
 
 .preform .quote{
