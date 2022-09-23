@@ -1,17 +1,26 @@
 import React from 'react';
 import './companycard.stylesheet.css';
 import tick from './tick.png';
+import star5 from './5star.png';
+import star4 from './4star.png';
+import star45 from './4-5star.png';
+import call from './call.png';
+import editorChoice from './editorchoice.png';
 
 export const CompanyCard = ({hash, image, rateDis, rate, rating, user, popular}) => {
     return <div className='company-card'>
 
         {popular === true && (
             <div className='popular'>
-                Overall Best Solar Provider
+                <div className='relative'>
+                    Overall Best Solar Provider
+
+                    <img src={editorChoice} />
+                </div>
             </div>
         )}
 
-        <div className='hashtag'>#{hash}</div>
+        {popular? <div className='hashtag yellow'>#{hash}</div> : <div className='hashtag'>#{hash}</div>}
 
         <img src={image} />
 
@@ -19,7 +28,19 @@ export const CompanyCard = ({hash, image, rateDis, rate, rating, user, popular})
 
         <div className="ratings">
             <div className="large bold orange">{rate}</div>
+            <div className="space10"></div>
 
+            {rate > 9.5 && (
+                <img src={star5} />
+            )}
+            {rate>=9 && rate<=9.5 && (
+                <img src={star45} />
+            )}
+            {rate>=8 && rate<9 && (
+                <img src={star4} />
+            )}
+
+            <div className="space10"></div>
             <div className="small orange">{rating}</div>
 
             <div className="xsmall">User Ratings ({user})</div>
@@ -45,6 +66,10 @@ export const CompanyCard = ({hash, image, rateDis, rate, rating, user, popular})
 
         <div className="getbutton">
             <div className="company-get-quote">Get Quote</div>
+
+            {popular === true && (
+                <img src={call} />
+            )}
         </div>
     </div>
 }
