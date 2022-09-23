@@ -87,7 +87,9 @@ export const CompanyComparision = () => {
 
             <div className="space50"></div>
 
-            <CompanyCard hash="1" image={image1} popular={true} rateDis={rateDis["1"]} rate="9.9" rating="BEST OF THE BEST" user="3327" />
+            <CompanyCard hash="1" image={image1} greycard={true} popular={true} rateDis={rateDis["1"]} rate="9.9" rating="BEST OF THE BEST" user="3327" />
+
+            <div className="space25"></div>
         </div>
 
     </div>

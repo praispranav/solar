@@ -6,8 +6,11 @@ import star4 from './4star.png';
 import star45 from './4-5star.png';
 import call from './call.png';
 import editorChoice from './editorchoice.png';
+import piggy from './piggy.png';
+import service from './service.png';
+import allcheck from './allcheck.png';
 
-export const CompanyCard = ({hash, image, rateDis, rate, rating, user, popular}) => {
+export const CompanyCard = ({hash, image, rateDis, rate, rating, user, popular, greycard}) => {
     return <div className='company-card'>
 
         {popular === true && (
@@ -71,5 +74,31 @@ export const CompanyCard = ({hash, image, rateDis, rate, rating, user, popular})
                 <img src={call} />
             )}
         </div>
+
+        {greycard === true && (
+            <div className="greycard">
+                <div>
+                    <img src={piggy} alt="" />
+                    <div>
+                    Flexible solar financing options with as little as $0 up front
+                    </div>
+                </div>
+
+                <div>
+                    <img src={piggy} alt="" />
+                    <div>
+                    High-quality, professional, local installation
+                    </div>
+                </div>
+
+                <div>
+                    <img src={piggy} alt="" />
+
+                    <div>
+                    Complete no-hassle system guarantee
+                    </div>
+                </div>
+            </div>
+        )}
     </div>
 }
