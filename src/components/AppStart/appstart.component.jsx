@@ -2,10 +2,10 @@ import './appstart.stylesheet.css';
 import { FormStart } from '../FormStart/formstart.component';
 import { PostForm } from '../PostForm/postform.component';
 import { useState } from 'react';
-import footer from '../../assets/footer.png'
+import footer from '../../assets/footer.svg'
 import '../../mediaquery.css';
 import { Landing } from '../Landing/landing.component';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo.svg';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { CompanyComparision } from '../CompanyComparision/companycomparision.component';
 

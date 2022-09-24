@@ -1,6 +1,6 @@
 import React from 'react';
 import './preform.stylesheet.css';
-import light from './light.png';
+import light from './light.svg';
 
 
 export const PreForm = ({showForm, setShowForm}) => (

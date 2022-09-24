@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './postform.stylesheet.css';
-import ellipse from './ellipse.png';
-import call from './call.png';
-import agent from './agent.png';
-import check from './check.png';
-import loading from './loading.png';
-import location from './location.png';
-import user from './user.png';
-import company from './company.png';
-import solar from './solar.png';
+import call from './call.svg';
+import agent from './agent.svg';
+import check from './check.svg';
+import loading from './loading.svg';
+import location from './location.svg';
+import user from './user.svg';
+import company from './company.svg';
+import solar from './solar.svg';
 
 
 let load = 0;
@@ -90,7 +89,7 @@ const Post = ({name, sec, min}) => {
         <div className="space25"></div>
 
         <div className="call media-font-22 flex-center large bold">
-            <div className='calllogo'><img src={call} className="cal" /> <img src={ellipse} /></div>&nbsp; 866-951-5443
+            <div className='calllogo'><img src={call} className="cal" /></div>&nbsp; 866-951-5443
         </div>
 
         <div className="space25"></div>

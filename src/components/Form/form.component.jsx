@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './form.stylesheet.css';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
-import noshade from './noshade.png';
-import littleshade from './littleshade.png';
-import partialshade from './partialshade.png';
-import severeshade from './severeshade.png';
+import noshade from './noshade.svg';
+import littleshade from './littleshade.svg';
+import partialshade from './partialshade.svg';
+import severeshade from './severeshade.svg';
 import {useJsApiLoader, Autocomplete} from '@react-google-maps/api'
 import { useRef } from 'react';
 

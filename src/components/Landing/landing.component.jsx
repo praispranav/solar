@@ -1,18 +1,18 @@
 import React from 'react';
 import './landing.stylesheet.css';
-import light from '../PreForm/light.png';
+import light from '../PreForm/light.svg';
 import {useNavigate} from 'react-router-dom';
-import im1 from './image1.png';
-import im2 from './image2.png';
-import im3 from './image3.png';
-import im4 from './image4.png';
-import house from './house.png';
-import fullservice from './fullservice.png';
-import savemore from './samemore.png';
-import financing from './financing.png';
-import gogreen from './gogreen.png';
-import solarloan from './solar-loan.png';
-import cashpurchase from './cash-purchase.png';
+import im1 from './image1.svg';
+import im2 from './image2.svg';
+import im3 from './image3.svg';
+import im4 from './image4.svg';
+import house from './house.svg';
+import fullservice from './fullservice.svg';
+import savemore from './samemore.svg';
+import financing from './financing.svg';
+import gogreen from './gogreen.svg';
+import solarloan from './solar-loan.svg';
+import cashpurchase from './cash-purchase.svg';
 
 
 export const Landing = ({preForm, setPreForm}) => {

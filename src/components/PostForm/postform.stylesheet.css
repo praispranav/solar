@@ -26,14 +26,6 @@
     margin-top: 7px;
 }
 
-.post-form .call .calllogo .cal{
-    position: absolute;
-    top: 14%;
-    left: 12.5%;
-    animation: 5s comein forward;
-    animation-delay: 3s;
-}
-
 .rotat{
     animation: 2s rotate infinite;
 }

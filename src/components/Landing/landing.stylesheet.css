@@ -112,19 +112,23 @@
 .cash-option > ul{
     margin: 0;
     padding: 0 30px;
-    list-style-image: url("./list-icon.png");
+    list-style-image: url("./list-icon.svg");
 }
 
 .home-solution{
     padding: 85px;
     width: 70%;
-    background-image: url('./home-solution.png');
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), linear-gradient(0deg, rgba(251, 146, 60, 0.5), rgba(251, 146, 60, 0.5)), url("../../assets/image3.jpg");
     margin: 40px 0;
     border-radius: 10px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.checked {
+    color: #EA580C;
+  }
 
 .align-left{
     text-align: left;

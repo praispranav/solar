@@ -9,7 +9,7 @@
     display: flex;
     justify-content: space-between;
     position: relative;
-    margin: 30px 0;
+    margin: 50px 0;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -56,8 +56,8 @@
 
 .hashtag{
     position: absolute;
-    top: 5px;
-    left: 10px;
+    top: 13px;
+    left: 19px;
 }
 
 .divider{
@@ -115,7 +115,7 @@
     align-items: center;
     max-width: 420px;
     min-width: 370px;
-    margin: 4px 0;
+    margin-bottom: 10px;
 }
 
 .greycard{
@@ -132,12 +132,26 @@
     border-radius: 0 0 5px 5px;
 }
 
+.company-call{
+    background: linear-gradient(267.78deg, #FB923C 0.19%, #BC5C4F 72.78%);
+    width: 199px;
+    height: 47px;
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
 .greycard div{
     width: 300px;
     display: flex;
     align-items: center;
 }
 
-.company-get-quote:hover, .getbutton img:hover{
+.company-get-quote:hover, .getbutton div:hover{
     transform: scale(1.07);
 }

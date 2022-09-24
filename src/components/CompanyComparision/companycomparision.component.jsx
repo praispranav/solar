@@ -1,11 +1,11 @@
 import React from 'react';
 import { CompanyCard } from '../CompanyCard/companycard.component';
 import './companycomparision.stylesheet.css';
-import image1 from './image1.png';
-import image2 from './image2.png';
-import image3 from './image3.png';
-import image4 from './image4.png';
-import image5 from './image5.png';
+import image1 from './image1.svg';
+import image2 from './image2.svg';
+import image3 from './image3.svg';
+import image4 from './image4.svg';
+import image5 from './image5.svg';
 
 export const CompanyComparision = () => {
 
@@ -81,7 +81,6 @@ export const CompanyComparision = () => {
 
             <CompanyCard hash="5" image={image5} rateDis={rateDis["5"]} rate="8.2" rating="GOOD" user="3327" />
 
-            <div className="space25"></div>
 
             <div className="horizontal-divider"></div>
 

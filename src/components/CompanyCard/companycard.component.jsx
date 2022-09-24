@@ -1,14 +1,16 @@
 import React from 'react';
 import './companycard.stylesheet.css';
-import tick from './tick.png';
-import star5 from './5star.png';
-import star4 from './4star.png';
-import star45 from './4-5star.png';
-import call from './call.png';
-import editorChoice from './editorchoice.png';
-import piggy from './piggy.png';
-import service from './service.png';
-import allcheck from './allcheck.png';
+import tick from './tick.svg';
+import star5 from './5star.svg';
+import star4 from './4star.svg';
+import star45 from './4-5star.svg';
+import call from './call.svg';
+import editorChoice from './editorchoice.svg';
+import piggy from './piggy.svg';
+import service from './service.svg';
+import allcheck from './allcheck.svg';
+import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js';
+
 
 export const CompanyCard = ({hash, image, rateDis, rate, rating, user, popular, greycard}) => {
     return <div className='company-card'>
@@ -71,13 +73,13 @@ export const CompanyCard = ({hash, image, rateDis, rate, rating, user, popular, 
             <div className="company-get-quote">Get Quote</div>
 
             {popular === true && (
-                <img src={call} />
+                <div className='company-call'> <img src={call} /> &nbsp;&nbsp; Call Now </div>
             )}
         </div>
 
         {greycard === true && (
             <div className="greycard">
-                <div>
+                <div className='align-left'>
                     <img src={piggy} alt="" />
                     <div>
                     Flexible solar financing options with as little as $0 up front
@@ -85,14 +87,14 @@ export const CompanyCard = ({hash, image, rateDis, rate, rating, user, popular, 
                 </div>
 
                 <div>
-                    <img src={piggy} alt="" />
+                    <img src={service} alt="" />
                     <div>
                     High-quality, professional, local installation
                     </div>
                 </div>
 
                 <div>
-                    <img src={piggy} alt="" />
+                    <img src={allcheck} alt="" />
 
                     <div>
                     Complete no-hassle system guarantee

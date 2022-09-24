@@ -1,6 +1,6 @@
 import {React, useState} from 'react';
-import rating5s from '../../assets/rating5s.png';
-import trustpilot from '../../assets/trustpilot.png';
+import rating5s from '../../assets/rating5s.svg';
+import trustpilot from '../../assets/trustpilot.svg';
 import { Form } from '../Form/form.component';
 import { PreForm } from '../PreForm/preform.component';
 import { ReviewCard } from '../ReviewCard/reviewcard.component';
