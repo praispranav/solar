@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import $ from 'jquery';
+import Cookies from "js-cookie";
+
 import './postform.stylesheet.css';
+
 import call from './call.svg';
 import agent from './agent.svg';
 import check from './check.svg';
@@ -70,7 +74,7 @@ const PreLoader = ({name, add}) => {
     </div>
 }
 
-const Post = ({name, sec, min}) => {
+const Post = ({number, name, sec, min}) => {
 
     return <div className="post-form flex-center-col">
 
@@ -88,9 +92,9 @@ const Post = ({name, sec, min}) => {
 
         <div className="space25"></div>
 
-        <div className="call media-font-22 flex-center large bold">
-            <div className='calllogo'><img src={call} className="cal" /></div>&nbsp; 866-951-5443
-        </div>
+        <a href={`tel:+${number}`} className="call media-font-22 flex-center large bold">
+            <div className='calllogo'><img src={call} className="cal" /></div>&nbsp; {number}
+        </a>
 
         <div className="space25"></div>
 
@@ -106,6 +110,32 @@ export const PostForm = ({name, add}) => {
 
     const [min, setMin] = useState(3);
     const [sec, setSec] = useState(3);
+    const [num, setNum] = useState();
+
+    useEffect(()=>{
+        $(document).ready(function ($) {
+            (function(e, d) {
+            //Ringba.com phone number tracking
+            var ringba_com_tag="JS287f9e234b394dd6b7e29e2f6b98091c";
+            var _sc = d.getElementsByTagName('script'), _s = _sc[_sc.length - 1];
+            e._rgba = e._rgba || { q: [] }; e._rgba.q.push({ tag: ringba_com_tag, cb: GetNumber, render: false, script: _s });
+            if (!(e._rgba.loading = !!e._rgba.loading)) {
+                var sc = d.createElement('script'); sc.type = 'text/javascript'; sc.async = true;
+                sc.src = '//js.callcdn.com/js_v3/min/ringba.com.js';
+                var s = d.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sc, s);
+                e._rgba.loading = true;
+            }
+            })(window, document);
+            function GetNumber(number, tagId, firstTime) {
+                window.pnumber = number;
+                setNum(number);
+                $("#form-end-contact").attr("href", "tel://" + window.pnumber);
+                $("#font-end-contact-number").text(window.pnumber);
+            }
+            (window._rgba_tags = (window._rgba_tags || [])).push({userIp:Cookies.get('userIp')},{user_agent:Cookies.get('user_agent')},{zip:Cookies.get('zip')},{city:Cookies.get('city')},{state:Cookies.get('state')},{firstName:Cookies.get('firstName')},{lastName:Cookies.get('lastName')},{email:Cookies.get('email')},{lead_id:Cookies.get("JornayaToken")});
+            $('.callnow').click(function() {window.fbqFunc('track', 'Contact');});
+        });
+    })
 
     while(true) {
         setTimeout(function () {    
@@ -124,7 +154,7 @@ export const PostForm = ({name, add}) => {
     
 
         return(
-            load? <Post name={name} sec={sec} min={min} /> : <PreLoader name={name} add={add}  />
+            load? <Post number={num} name={name} sec={sec} min={min} /> : <PreLoader name={name} add={add}  />
         )
     }
 }

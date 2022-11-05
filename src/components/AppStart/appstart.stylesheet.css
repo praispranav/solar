@@ -182,3 +182,12 @@ input[type=number] {
 .logo {
     color: #FB923C;
 }
+
+.pointer{
+    cursor: pointer;
+}
+
+.space20{
+    width: 100px;
+    height: 20px;
+}

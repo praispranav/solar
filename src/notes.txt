@@ -1,0 +1,13 @@
+/
+
+/profile
+-> optiona
+
+/settings
+
+/proposals
+
+/projects
+
+/protocol
+-> dynamic name with /name in front

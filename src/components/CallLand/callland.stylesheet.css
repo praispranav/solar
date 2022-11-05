@@ -181,3 +181,34 @@
 footer .grey{
     color: #9F9F9F;
 }
+
+.why-solar{
+    width: 100%;
+    padding: 80px 20%;
+    background: linear-gradient(0deg, rgba(253, 244, 237, 0.95), rgba(253, 244, 237, 0.95));
+    position: relative;
+    overflow: hidden;
+}
+
+.savings{
+    position: absolute;
+    left: -53px;
+    top: 10px;
+    width: 250px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transform: rotate(-30deg);
+    background-color: #bde6cb;
+}
+
+.saving-content{
+    background-color: #00BC66;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 44px;
+}

@@ -61,11 +61,11 @@ export const CompanyComparision = () => {
     return <div className='company-comparision'>
 
         <div className='company-comparision-main'>
-            <div className='bold large'>
+            <div className='bold large media-font-22'>
             Top 5 Residential Solar Providers
             </div>
 
-            <div className='orange medium'>
+            <div className='orange media-font-22 medium'>
             April 2022 Ratings
             </div>
         </div>
@@ -88,7 +88,7 @@ export const CompanyComparision = () => {
 
             <CompanyCard hash="1" image={image1} greycard={true} popular={true} rateDis={rateDis["1"]} rate="9.9" rating="BEST OF THE BEST" user="3327" />
 
-            <div className="space25"></div>
+            <div className="space25 space150"></div>
         </div>
 
     </div>

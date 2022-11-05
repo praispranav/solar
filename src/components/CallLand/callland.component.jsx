@@ -131,6 +131,24 @@ export const CallLand = () => {
 
         </div>
 
+        <div className="why-solar media-pad-h-7">
+
+            <div className="savings">
+                <div className="small bold saving-content">SAVINGS</div>
+            </div>
+            
+            <div className="why-solar-content flex-center flex-center-col">
+                <div className="orange xsmall media-font-12">WHY SOLAR</div>
+                <div className='space20' />
+                <div className="medium bold media-font-22">30% Federal Tax Credit</div>
+                <div className="space20"></div>
+                <div className="small media-font-14">
+                The US Federal government has extended the 30% Federal Tax Credit on residential solar panels. This incentive means you receive 30% of the total system cost back in your tax returns! The time to look into going green with solar power is NOW!
+                </div>
+            </div>
+
+        </div>
+
         <div className='call-land-process media-pad-h-7' >
 
             <div className='orange xsmall text-align-center'>OUR PROCESS</div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './landing.stylesheet.css';
 import light from '../PreForm/light.svg';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate, useSearchParams } from "react-router-dom";
 import im1 from './image1.svg';
 import im2 from './image2.svg';
 import im3 from './image3.svg';

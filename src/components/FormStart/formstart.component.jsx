@@ -1,4 +1,6 @@
-import {React, useState} from 'react';
+import axios from 'axios';
+import {React, useState, useEffect} from 'react';
+import { useSearchParams } from 'react-router-dom';
 import rating5s from '../../assets/rating5s.svg';
 import trustpilot from '../../assets/trustpilot.svg';
 import { Form } from '../Form/form.component';
@@ -6,14 +8,36 @@ import { PreForm } from '../PreForm/preform.component';
 import { ReviewCard } from '../ReviewCard/reviewcard.component';
 
 
-export const FormStart = ({setCusAdd, setFormSubmited, setName}) => {
-
+export const FormStart = ({ setCusAdd, setFormSubmited, setName}) => {
+    const [form , setForm] = useState({});
     const [showForm, setShowForm] = useState(false);
+    const [search] = useSearchParams();
+
+    useEffect(() =>{
+        axios.get("https://geolocation-db.com/json/0f761a30-fe14-11e9-b59f-e53803842572")
+        .then(response => {
+            setForm({
+                'userIp' : response.data['IPv4'],
+                'Campaign_Name' : search.get('CID'),
+                'Adset_Name' : search.get('ADS_ID'),
+                'Ad_Name': search.get('ADID'),
+                'fbclid' : search.get('fbclid'),
+                'utm_source' : search.get('utm_source')
+            })
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'utm_source':search.get('utm_source'),
+                'campaign_id' : search.get('CID'),
+                'adset_id': search.get('ADS_ID'),
+                'ad_id':  search.get('ADID')});
+        })   
+        
+    },[])
 
     return(
         <div>
             <div className='stepform flex-center'>
-                {showForm? <Form setCusAdd={setCusAdd} setFormSubmited={setFormSubmited} setName={setName} /> : <PreForm showForm={showForm} setShowForm={setShowForm} />}
+                {showForm? <Form form={form} setCusAdd={setCusAdd} setFormSubmited={setFormSubmited} setName={setName} /> : <PreForm showForm={showForm} setShowForm={setShowForm} />}
             </div>
 
             <div className='review flex-center-col'>

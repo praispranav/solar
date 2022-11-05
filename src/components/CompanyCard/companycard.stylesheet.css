@@ -114,8 +114,9 @@
     display: flex;
     align-items: center;
     max-width: 420px;
-    min-width: 370px;
+    min-width: 280px;
     margin-bottom: 10px;
+    text-align: left;
 }
 
 .greycard{

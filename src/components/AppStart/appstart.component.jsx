@@ -6,7 +6,7 @@ import footer from '../../assets/footer.svg'
 import '../../mediaquery.css';
 import { Landing } from '../Landing/landing.component';
 import logo from '../../assets/logo.svg';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import { CompanyComparision } from '../CompanyComparision/companycomparision.component';
 
 
@@ -15,12 +15,15 @@ export function AppStart() {
     const [name, setName] = useState('');
     const [cusAdd, setCusAdd] = useState('');
     const [preForm, setPreForm] = useState(true);
+    const navigate = useNavigate() ;
 
     const Decide = () =>(
         <div>
         {formSubmited? <PostForm name={name} add={cusAdd} /> : <FormStart setFormSubmited={setFormSubmited} setCusAdd={setCusAdd} setName={setName} />}
         </div>
     )
+
+
 
     return (
         <div className="AppStart">
@@ -32,6 +35,7 @@ export function AppStart() {
         
             <Routes>
             <Route exact path="/" element={<Landing preForm={preForm} setPreForm={setPreForm} />}  />
+            <Route exact path="/:cid" element={<Landing preForm={preForm} setPreForm={setPreForm} />}  />
             <Route path="/form" element={<Decide />} />
             <Route path='/companies' element={<CompanyComparision />} />
             </Routes>
@@ -48,7 +52,7 @@ export function AppStart() {
             |
             <div className='xsmall bold'>Copyright © 2021 | Eruptic Inc.</div>
             |
-            <div className='xsmall'>CALIFORNIA PRIVACY | PRIVACY POLICY | TERMS OF USE</div>
+            <div className='xsmall'><span className='pointer' onClick={() => {navigate("/california-privacy-notice")}}>CALIFORNIA PRIVACY</span> | <span className='pointer' onClick={()=>{navigate('/privacy-policy')}}>PRIVACY POLICY</span> | <span className='pointer' onClick={()=>{navigate('/terms-and-condition')}}>TERMS OF USE</span></div>
 
             </div>
 

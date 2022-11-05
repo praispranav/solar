@@ -13,11 +13,11 @@ import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js'
 
 
 export const CompanyCard = ({hash, image, rateDis, rate, rating, user, popular, greycard}) => {
-    return <div className='company-card'>
+    return <div className='company-card media-flex-center-col'>
 
         {popular === true && (
             <div className='popular'>
-                <div className='relative'>
+                <div className='relative media-font-16'>
                     Overall Best Solar Provider
 
                     <img src={editorChoice} />
@@ -25,7 +25,7 @@ export const CompanyCard = ({hash, image, rateDis, rate, rating, user, popular, 
             </div>
         )}
 
-        {popular? <div className='hashtag yellow'>#{hash}</div> : <div className='hashtag'>#{hash}</div>}
+        {popular? <div className='hashtag yellow media-font-18'>#{hash}</div> : <div className='hashtag media-font-18'>#{hash}</div>}
 
         <img src={image} />
 
@@ -78,23 +78,23 @@ export const CompanyCard = ({hash, image, rateDis, rate, rating, user, popular, 
         </div>
 
         {greycard === true && (
-            <div className="greycard">
+            <div className="greycard media-flex-center-col">
                 <div className='align-left'>
-                    <img src={piggy} alt="" />
+                    <img src={piggy} alt="" /> &nbsp;
                     <div>
                     Flexible solar financing options with as little as $0 up front
                     </div>
                 </div>
-
+                <div className='media-space20' />
                 <div>
-                    <img src={service} alt="" />
+                    <img src={service} alt="" /> &nbsp;
                     <div>
                     High-quality, professional, local installation
                     </div>
                 </div>
-
+                <div className='media-space20' />
                 <div>
-                    <img src={allcheck} alt="" />
+                    <img src={allcheck} alt="" /> &nbsp;
 
                     <div>
                     Complete no-hassle system guarantee

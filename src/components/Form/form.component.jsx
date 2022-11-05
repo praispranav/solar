@@ -8,15 +8,18 @@ import partialshade from './partialshade.svg';
 import severeshade from './severeshade.svg';
 import {useJsApiLoader, Autocomplete} from '@react-google-maps/api'
 import { useRef } from 'react';
+import Cookies from 'js-cookie';
 
 
 
-export const Form = ({setFormSubmited, setName, setCusAdd}) => {
+export const Form = ({form, setFormSubmited, setName, setCusAdd}) => {
     const [formStep, setFormStep] = useState(0);
     const [formData, setFormData] = useState({});
     var [address, setAddress] = useState({});
     var autocomplete = null;
     var addInput = useRef();
+    const fbc = Cookies.get('_fbc') || "";
+    const fbp = Cookies.get('_fbp') || "";
 
     const apiKey = "AIzaSyASykO9iGndQinKKn0q0JWjjTgs628bKuY";
     // const mapApiJs = 'https://maps.googleapis.com/maps/api/js';
@@ -27,8 +30,18 @@ export const Form = ({setFormSubmited, setName, setCusAdd}) => {
     }
 
     const next = () => {
+        const temp = document.getElementById('leadid_token').value;
         setFormStep(4); 
-        setFormData({...formData, street: address["city"], state : address["state"], address: addInput.current.value})
+        setFormData({...formData, 
+            street: address["city"], 
+            state : address["state"], 
+            address: addInput.current.value,
+            fbc : fbc,
+            fbp : fbp,
+            JornayaToken : temp,
+            user_agent : navigator.userAgent,
+            ...form
+        })
     }
 
     const { isLoaded } = useJsApiLoader({
@@ -91,11 +104,12 @@ export const Form = ({setFormSubmited, setName, setCusAdd}) => {
         if (autocomplete !== null) {
             console.log(autocomplete.getPlace());
             extractAddress(autocomplete.getPlace());
-            console.log(address)
-            console.log(formData["address"]);
-            console.log(formData["zip"]);
-            console.log(formData["street"]);
-            console.log(formData["state"]);
+            // console.log(address)
+            // console.log(formData["address"]);
+            // console.log(formData["zip"]);
+            // console.log(formData["street"]);
+            // console.log(formData["state"]);
+            const temp = document.getElementById('leadid_token').value;
         }
     }
 
@@ -108,16 +122,47 @@ export const Form = ({setFormSubmited, setName, setCusAdd}) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
         };
-        fetch('https://script.google.com/macros/s/AKfycbyolGwdRFjV6TDNWkPNW8ijXthFTPwJFP_SRGxDa9z9rxsOYdVI9851u1cANyWDvRPDbw/exec', requestOptions)
+        fetch('https://script.google.com/macros/s/AKfycbz0gdEBn41eamB_4dXlPweBCc5woua_492RPTvKmn1OzEac1EF9mIv7qj01-sAVPVpmow/exec', requestOptions)
             .then(response => {
                 setFormSubmited(true); 
                 setName(formData.fname);
                 setCusAdd(formData["street"] + ", " + formData["state"]);
+                Cookies.set('full_name', formData['firstName'] + " " + formData['lastName']);
+                Cookies.set('userIp', formData['userIp']);
+                Cookies.set('user_agent', formData['user_agent']);
+                Cookies.set('zip', formData['zip']);
+                Cookies.set('city', formData['city']);
+                Cookies.set('state', formData['state'])
+                Cookies.set('firstName', formData['firstName'])
+                Cookies.set('lastName', formData['lastName'])
+                Cookies.set('email', formData['email'])
+                Cookies.set('JornayaToken', formData['JornayaToken'])
             })
     }
 
+    useEffect(()=>{
+        if (typeof window !== "undefined") {
+            const s = document.createElement('script');
+            s.id = 'LeadiDscript_campaign';
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = '//create.lidstatic.com/campaign/1a1b4c75-9f48-ab0e-0d04-dbc113047fc3.js?snippet_version=2';
+            <noscript><img src='//create.leadid.com/noscript.gif?lac=2bfe796d-86b0-578a-2976-5c28f271c074&lck=1a1b4c75-9f48-ab0e-0d04-dbc113047fc3&snippet_version=2' alt="" /></noscript>
+            document.body.appendChild(s);
+            
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                'utm_source':form['utm_source'],
+                'campaign_id' : form['CID'],
+                'adset_id': form['ADS_ID'],
+                'ad_id':  form['ADID']});
+        }
+    },[])
+
     return(
     <form className='form flex-center-col' onSubmit={handleSubmit}>
+
+        <input id="leadid_token" name="universal_leadid" type='hidden' />
 
         <div className='small'>You May Be Eligible For A New US Solar Program.</div>
         {formStep === 0 && (
@@ -249,8 +294,8 @@ export const Form = ({setFormSubmited, setName, setCusAdd}) => {
                     <div className='head media-font-20 orange medium bold'>See Your Free Quotes Now!</div>
 
                     <div className='add-state media-flex-center-col'>
-                        <input required onChange={(e)=>{setFormData({...formData, fname : e.target.value})}} type="text" placeholder='First Name' className='light-grey width-100 small state' />
-                        <input required onChange={(e)=>{setFormData({...formData, lname : e.target.value})}} type="text" placeholder='Last Name' className='light-grey width-100 small state' />
+                        <input required onChange={(e)=>{setFormData({...formData, firstName : e.target.value})}} type="text" placeholder='First Name' className='light-grey width-100 small state' />
+                        <input required onChange={(e)=>{setFormData({...formData, lastName : e.target.value})}} type="text" placeholder='Last Name' className='light-grey width-100 small state' />
                     </div>
 
                     <input required onChange={(e)=>{setFormData({...formData, email : e.target.value})}} type='email' placeholder='Email Address' className="address small" />
