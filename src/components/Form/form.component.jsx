@@ -122,7 +122,7 @@ export const Form = ({form, setFormSubmited, setName, setCusAdd}) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
         };
-        fetch('https://script.google.com/macros/s/AKfycbz0gdEBn41eamB_4dXlPweBCc5woua_492RPTvKmn1OzEac1EF9mIv7qj01-sAVPVpmow/exec', requestOptions)
+        fetch('https://script.google.com/macros/s/AKfycbxCfo4PYspNUZVx3b3iAeZSCbKvDTg_sd6LahVVZ96nKtUKcpbmVe4fJbwbdUdGuA6Eww/exec', requestOptions)
             .then(response => {
                 setFormSubmited(true); 
                 setName(formData.fname);

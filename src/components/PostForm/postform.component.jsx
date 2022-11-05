@@ -29,7 +29,7 @@ const PreLoader = ({name, add}) => {
             <div id="div1" className='medium preload-div'>
                 <div>
                     <img src={user} /> &nbsp;
-                    {name}
+                    {Cookies.get("full_name")}
                 </div>
 
                 <img src={check} />
@@ -79,7 +79,7 @@ const Post = ({number, name, sec, min}) => {
     return <div className="post-form flex-center-col">
 
         <div className="orange media-font-22 large bold">
-        Congratulations, {name}!
+        Congratulations, {Cookies.get("full_name")}!
         </div>
 
         <div className="space25"></div>
