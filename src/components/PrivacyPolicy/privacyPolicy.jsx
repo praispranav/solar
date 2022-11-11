@@ -19,7 +19,7 @@ export const PrivacyPolicy =()=>{
                 This privacy policy was created to let you know what information
                 we collect from you, what we do with it, and to assure you that
                 your information will be respected on our Web site:
-                www.uniquote.com owned and operated by Eruptic, INC. (referred
+                www.uniquote.com owned and operated by Adstia , LLC. (referred
                 to herein as “Provider”, the “Site”, “we” or “us”). The Provider
                 attempts to protect your privacy to the maximum extent possible.
               </p>
@@ -270,7 +270,7 @@ export const PrivacyPolicy =()=>{
                 following address:
               </p>
               <p>
-                Eruptic, INC, 44 Wall Street, Suite 505, New York, NY 10005, USA
+                Adstia , LLC, 44 Wall Street, Suite 505, New York, NY 10005, USA
               </p>
               <p>
                 If you have registered or submitted information under more than
@@ -444,8 +444,8 @@ export const PrivacyPolicy =()=>{
                 requests are subject to verification and there may be
                 circumstances where we do not honor your request, as permitted
                 under the law. We may verify your request by asking for
-                additional information about how you found out about Eruptic,
-                INC., who referred you to Eruptic,Inc., to make a request (which
+                additional information about how you found out about Adstia ,
+                LLC., who referred you to Adstia ,LLC., to make a request (which
                 Publisher, Querier or Partner referred you to us) and which
                 websites you made the same requests to; and we will need to be
                 able to verify with that Publisher or Partner as to the validity

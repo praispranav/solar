@@ -50,7 +50,7 @@ export function AppStart() {
                 <img src={logo} /> &nbsp;<span className='bold'>Solar Panel</span> Quotes
             </div>
             |
-            <div className='xsmall bold'>Copyright © 2021 | Eruptic Inc.</div>
+            <div className='xsmall bold'>Copyright © 2021 | Adstia LLC</div>
             |
             <div className='xsmall'><span className='pointer' onClick={() => {navigate("/california-privacy-notice")}}>CALIFORNIA PRIVACY</span> | <span className='pointer' onClick={()=>{navigate('/privacy-policy')}}>PRIVACY POLICY</span> | <span className='pointer' onClick={()=>{navigate('/terms-and-condition')}}>TERMS OF USE</span></div>
 
