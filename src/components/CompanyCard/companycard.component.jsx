@@ -9,7 +9,6 @@ import editorChoice from './editorchoice.svg';
 import piggy from './piggy.svg';
 import service from './service.svg';
 import allcheck from './allcheck.svg';
-import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/js/all.min.js';
 
 
 export const CompanyCard = ({hash, image, rateDis, rate, rating, user, popular, greycard}) => {
