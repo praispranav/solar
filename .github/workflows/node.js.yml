@@ -26,7 +26,3 @@ jobs:
         cache: 'npm'
     - run: npm i
     - run: CI=false npm run build
-    - run: cd /var/www/solarspanelsquotes.com
-    - run: rm -rf html
-    - run: mkdir html
-    - run: cp -a /var/www/actions-runner-solar/solar/Solar/Solar/build/. /var/www/solarspanelsquotes.com/html
