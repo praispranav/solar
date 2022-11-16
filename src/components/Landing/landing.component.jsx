@@ -1,7 +1,7 @@
 import React from 'react';
 import './landing.stylesheet.css';
 import light from '../PreForm/light.svg';
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import im1 from './image1.svg';
 import im2 from './image2.svg';
 import im3 from './image3.svg';
@@ -25,7 +25,7 @@ export const Landing = ({preForm, setPreForm}) => {
     return(<div className="landing flex-center-col">
         <div className="lander flex-center-col">
 
-            <img src={light} />
+            <img alt="" src={light} />
             <div className='space25' />
             <div className='xlarge media-font-22 bold'>
                 Switch To Solar Power &  Start <span className='orange'>Saving</span> On Electricity Bills!
@@ -45,10 +45,10 @@ export const Landing = ({preForm, setPreForm}) => {
         <div className='branding'>
 
             <div className='flex-spbet flex-wrap-img'>
-                <img src={im1} />
-                <img src={im2} />
-                <img src={im3} />
-                <img src={im4} />
+                <img alt="" src={im1} />
+                <img alt="" src={im2} />
+                <img alt="" src={im3} />
+                <img alt="" src={im4} />
             </div>
             <div className='space25' />
             <div className='space25' />
@@ -67,7 +67,7 @@ export const Landing = ({preForm, setPreForm}) => {
         <div className='features'>
 
             <div>
-                <img src={fullservice} />
+                <img alt="" src={fullservice} />
                 <div className='space20' />
                 <div className='medium bold'>Full Service</div>
                 <div className='space20' />
@@ -77,7 +77,7 @@ export const Landing = ({preForm, setPreForm}) => {
             </div>
 
             <div>
-                <img src={savemore} />
+                <img alt="" src={savemore} />
                 <div className='space20' />
                 <div className='medium bold'>Save More</div>
                 <div className='space20'></div>
@@ -87,7 +87,7 @@ export const Landing = ({preForm, setPreForm}) => {
             </div>
 
             <div>
-                <img src={financing} />
+                <img alt="" src={financing} />
                 <div className='space20' />
                 <div className='medium bold'>Financing</div>
                 <div className='space20'></div>
@@ -97,7 +97,7 @@ export const Landing = ({preForm, setPreForm}) => {
             </div>
 
             <div>
-                <img src={gogreen} />
+                <img alt="" src={gogreen} />
                 <div className='space20' />
                 <div className='medium bold'>Go Green</div>
                 <div className='space20'></div>
@@ -138,7 +138,7 @@ export const Landing = ({preForm, setPreForm}) => {
 
         <div className='flex-center your-choice'>
 
-            <img src={house} width="500px" />
+            <img alt="" src={house} width="500px" />
 
             <div className='flex-col-align-cen inside-float-left'>
                 <div className='orange text-center media-font-12 xsmall'>Safe Solar Financing for Virginians</div>
@@ -166,7 +166,7 @@ export const Landing = ({preForm, setPreForm}) => {
         <div className='flex-center flex-wrap'>
             <div className='cash-option'>
                 <div className='most-popular small'>Most Popular</div>
-                <div className='flex-align-cen media-font-22 orange medium bold'><img src={solarloan} /> &nbsp;&nbsp;Solar Loan</div>
+                <div className='flex-align-cen media-font-22 orange medium bold'><img alt="" src={solarloan} /> &nbsp;&nbsp;Solar Loan</div>
                 <div className='space25' />
                 <div className='medium media-font-22'>
                 Finance your purchase with affordable monthly payments.
@@ -186,7 +186,7 @@ export const Landing = ({preForm, setPreForm}) => {
             </div>
 
             <div className='cash-option'>
-                <div className='flex-align-cen orange media-font-22 medium bold'><img src={cashpurchase} /> &nbsp;&nbsp;Cash Purchase</div>
+                <div className='flex-align-cen orange media-font-22 medium bold'><img alt="" src={cashpurchase} /> &nbsp;&nbsp;Cash Purchase</div>
                 <div className='space25' />
                 <div className='medium media-font-22'>
                 Purchase your solar panels and see immediate monthly savings on your power bill.

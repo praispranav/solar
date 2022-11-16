@@ -6,7 +6,7 @@ import light from './light.svg';
 export const PreForm = ({showForm, setShowForm}) => (
     <div className='preform flex-center-col'>
 
-        <img src={light} />
+        <img alt="" src={light} />
 
         <div className='space25'></div>
 

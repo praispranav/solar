@@ -1,5 +1,4 @@
 import './App.css';
-import logo from './assets/logo.svg';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AppStart } from './components/AppStart/appstart.component';
 import { CallLand } from './components/CallLand/callland.component';

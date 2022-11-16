@@ -157,7 +157,7 @@ export const Form = ({form, setFormSubmited, setName, setCusAdd}) => {
                 'adset_id': form['ADS_ID'],
                 'ad_id':  form['ADID']});
         }
-    },[])
+    },[form])
 
     return(
     <form className='form flex-center-col' onSubmit={handleSubmit}>
@@ -196,10 +196,10 @@ export const Form = ({form, setFormSubmited, setName, setCusAdd}) => {
                     <div className='head media-font-20 orange medium bold'>How much shade does your home have?</div>
                 
                     <div className='options'>
-                        <div onClick={() => {setFormData({...formData, shade : "No Shade"}); setFormStep(2)}} className='img-option'><img src={noshade} />No Shade</div>
-                        <div onClick={() => {setFormData({...formData, shade : "Little Shade"}); setFormStep(2)}} className='img-option'><img src={littleshade} />Little Shade</div>
-                        <div onClick={() => {setFormData({...formData, shade : "Partial Shade"}); setFormStep(2)}} className='img-option'><img src={partialshade} />Partial Shade</div>
-                        <div onClick={() => {setFormData({...formData, shade : "Severe Shade"}); setFormStep(2)}} className='img-option'><img src={severeshade} />Severe Shade</div>
+                        <div onClick={() => {setFormData({...formData, shade : "No Shade"}); setFormStep(2)}} className='img-option'><img alt="" src={noshade} />No Shade</div>
+                        <div onClick={() => {setFormData({...formData, shade : "Little Shade"}); setFormStep(2)}} className='img-option'><img alt="" src={littleshade} />Little Shade</div>
+                        <div onClick={() => {setFormData({...formData, shade : "Partial Shade"}); setFormStep(2)}} className='img-option'><img alt="" src={partialshade} />Partial Shade</div>
+                        <div onClick={() => {setFormData({...formData, shade : "Severe Shade"}); setFormStep(2)}} className='img-option'><img alt="" src={severeshade} />Severe Shade</div>
                     </div>
                 </div>
 

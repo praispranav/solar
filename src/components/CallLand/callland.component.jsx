@@ -22,14 +22,14 @@ export const CallLand = () => {
     return (<div className='call-land'>
         <div className='solar-call'>
             <div className='logo'>
-                <img src={logo} className="logo-img" /> &nbsp; 
+                <img alt="" src={logo} className="logo-img" /> &nbsp; 
                 <span className='bold orange media-font-12 small'>SOLAR PANEL</span> &nbsp;
                 <span className='orange media-font-10 xxsmall'>Quotes</span>
             </div>
 
             <div className='number'>
                 <span className='small grey dis-none'>Call us at</span> &nbsp;
-                <img src={call_icon} /> &nbsp;
+                <img alt="" src={call_icon} /> &nbsp;
                 <span className='orange media-font-12 bold small'>866-951-5443</span>
             </div>
         </div>
@@ -45,11 +45,11 @@ export const CallLand = () => {
 
             <div className='number'>
                 <span className='small grey'>Call us at</span> &nbsp;
-                <img src={call_icon} /> &nbsp;
+                <img alt="" src={call_icon} /> &nbsp;
                 <span className='orange bold small'>866-951-5443</span>
             </div>
 
-            <img src={float} className="call-land-float-icon" />
+            <img alt="" src={float} className="call-land-float-icon" />
         </div>
 
         <div className='call-land-main flex-center-col media-pad-h-5'>
@@ -66,21 +66,21 @@ export const CallLand = () => {
             For Fast & Easy, Same-Day Service <br/>Call Now to Get Rid of Those Pesky Pests Today!
             </div>
             <div className='space25' />
-            <img src={number} />
+            <img alt="" src={number} />
             <div className='space25' />
             <div className='flex-spbet media-font-12 media-flex-left-col'>
                 <div className='flex-center'>
-                    <img src={tick} /> &nbsp;
+                    <img alt="" src={tick} /> &nbsp;
                     Zero-Obligation Estimates
                 </div>
 
                 <div className='flex-center pad-30'>
-                    <img src={tick} /> &nbsp;
+                    <img alt="" src={tick} /> &nbsp;
                     Trusted & Local
                 </div>
 
                 <div className='flex-center'>
-                    <img src={tick} /> &nbsp;
+                    <img alt="" src={tick} /> &nbsp;
                     First Class Customer Service
                 </div>
             </div>
@@ -90,11 +90,11 @@ export const CallLand = () => {
         <div className='call-land-sponsers'>
             <span className='orange small'>Trusted By</span>
 
-            <img src={image1} />
-            <img src={image2} />
-            <img src={image3} />
-            <img src={image4} />
-            <img src={image5} />
+            <img alt="" src={image1} />
+            <img alt="" src={image2} />
+            <img alt="" src={image3} />
+            <img alt="" src={image4} />
+            <img alt="" src={image5} />
 
         </div>
 
@@ -125,7 +125,7 @@ export const CallLand = () => {
                     </div>
                 </div>
                 
-                <img src={number} />
+                <img alt="" src={number} />
 
             </div>
 
@@ -265,7 +265,7 @@ export const CallLand = () => {
         <div className='flex-center flex-wrap'>
             <div className='cash-option'>
                 <div className='most-popular small'>Most Popular</div>
-                <div className='flex-align-cen media-font-22 orange medium bold'><img src={solarloan} /> &nbsp;&nbsp;Solar Loan</div>
+                <div className='flex-align-cen media-font-22 orange medium bold'><img alt="" src={solarloan} /> &nbsp;&nbsp;Solar Loan</div>
                 <div className='space25' />
                 <div className='medium media-font-22'>
                 Finance your purchase with affordable monthly payments.
@@ -285,7 +285,7 @@ export const CallLand = () => {
             </div>
 
             <div className='cash-option'>
-                <div className='flex-align-cen orange media-font-22 medium bold'><img src={cashpurchase} /> &nbsp;&nbsp;Cash Purchase</div>
+                <div className='flex-align-cen orange media-font-22 medium bold'><img alt="" src={cashpurchase} /> &nbsp;&nbsp;Cash Purchase</div>
                 <div className='space25' />
                 <div className='medium media-font-22'>
                 Purchase your solar panels and see immediate monthly savings on your power bill.
@@ -323,12 +323,12 @@ export const CallLand = () => {
 
                     <span className='dark-grey medium media-font-22 bold'>Excellent</span>
 
-                    <img src={rating5s} />
+                    <img alt="" src={rating5s} />
 
                     <span className='dark-grey media- small'>Based on 786 reviews</span>
 
                     <div>
-                        <img src={trustpilot} />
+                        <img alt="" src={trustpilot} />
                     </div>
                 
                 </div>
@@ -359,21 +359,21 @@ export const CallLand = () => {
             For Fast & Easy, Same-Day Service <br/>Call Now to Get Rid of Those Pesky Pests Today!
             </div>
             <div className='space25' />
-            <img src={number} />
+            <img alt="" src={number} />
             <div className='space25' />
             <div className='flex-spbet media-flex-center-col media-font-12'>
                 <div className='flex-center'>
-                    <img src={tick} /> &nbsp;
+                    <img alt="" src={tick} /> &nbsp;
                     Zero-Obligation Estimates
                 </div>
 
                 <div className='flex-center pad-30'>
-                    <img src={tick} /> &nbsp;
+                    <img alt="" src={tick} /> &nbsp;
                     Trusted & Local
                 </div>
 
                 <div className='flex-center'>
-                    <img src={tick} /> &nbsp;
+                    <img alt="" src={tick} /> &nbsp;
                     First Class Customer Service
                 </div>
             </div>
@@ -382,12 +382,12 @@ export const CallLand = () => {
 
         <footer>
             <div className="bg-green">
-            <img src={footer} className="footer-img" />
+            <img alt="" src={footer} className="footer-img" />
             </div>
 
             <div className='footer-links'>
                 <div className='logo'>
-                    <img src={logo} /> &nbsp; 
+                    <img alt="" src={logo} /> &nbsp; 
                     <span className='bold orange small'>SOLAR PANEL</span> &nbsp;
                     <span className='orange xxsmall'>Quotes</span>
                 </div>

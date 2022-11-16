@@ -28,47 +28,47 @@ const PreLoader = ({name, add}) => {
             
             <div id="div1" className='medium preload-div'>
                 <div>
-                    <img src={user} /> &nbsp;
+                    <img alt="" src={user} /> &nbsp;
                     {Cookies.get("full_name")}
                 </div>
 
-                <img src={check} />
+                <img alt="" src={check} />
             </div>
 
             <div id="div2" className='medium preload-div border-top'>
                 <div>
-                    <img src={location} /> &nbsp;
+                    <img alt="" src={location} /> &nbsp;
                     {add}
                 </div>
 
-                <img src={check} />
+                <img alt="" src={check} />
             </div>
 
             <div id="div2" className='medium preload-div border-top'>
                 <div>
-                    <img src={company} /> &nbsp;
+                    <img alt="" src={company} /> &nbsp;
                     Aetna | Blue Cross | Humana | United | Other
                 </div>
 
-                <img src={check} />
+                <img alt="" src={check} />
             </div>
 
             <div id="div2" className='medium preload-div border-top'>
                 <div>
-                    <img src={solar} /> &nbsp;
+                    <img alt="" src={solar} /> &nbsp;
                     New Solar 2022 Quotes
                 </div>
 
-                <img src={check} />
+                <img alt="" src={check} />
             </div>
 
             <div id="div3" className='medium preload-div border-top'>
                 <div>
-                    <img src={agent} /> &nbsp;
+                    <img alt="" src={agent} /> &nbsp;
                     Connecting you with a licensed agent...
                 </div>
 
-                <img className='rotat' src={loading} />
+                <img alt="" className='rotat' src={loading} />
             </div>
         </div>
     </div>
@@ -93,7 +93,7 @@ const Post = ({number, name, sec, min}) => {
         <div className="space25"></div>
 
         <a href={`tel:+${number}`} className="call media-font-22 flex-center large bold">
-            <div className='calllogo'><img src={call} className="cal" /></div>&nbsp; {number}
+            <div className='calllogo'><img alt="" src={call} className="cal" /></div>&nbsp; {number}
         </a>
 
         <div className="space25"></div>

@@ -19,14 +19,14 @@ export const CompanyCard = ({hash, image, rateDis, rate, rating, user, popular, 
                 <div className='relative media-font-16'>
                     Overall Best Solar Provider
 
-                    <img src={editorChoice} />
+                    <img alt="" src={editorChoice} />
                 </div>
             </div>
         )}
 
         {popular? <div className='hashtag yellow media-font-18'>#{hash}</div> : <div className='hashtag media-font-18'>#{hash}</div>}
 
-        <img src={image} />
+        <img alt="" src={image} />
 
         <div className="divider"></div>
 
@@ -35,13 +35,13 @@ export const CompanyCard = ({hash, image, rateDis, rate, rating, user, popular, 
             <div className="space10"></div>
 
             {rate > 9.5 && (
-                <img src={star5} />
+                <img alt="" src={star5} />
             )}
             {rate>=9 && rate<=9.5 && (
-                <img src={star45} />
+                <img alt="" src={star45} />
             )}
             {rate>=8 && rate<9 && (
-                <img src={star4} />
+                <img alt="" src={star4} />
             )}
 
             <div className="space10"></div>
@@ -59,7 +59,7 @@ export const CompanyCard = ({hash, image, rateDis, rate, rating, user, popular, 
             <div className="xxsmall desc">
                 {Object.keys(rateDis["desc"]).map(([key, value]) => {
                     return <div>
-                        <img src={tick} /> &nbsp;
+                        <img alt="" src={tick} /> &nbsp;
                         {rateDis["desc"][key]}
                     </div>
                 })}
@@ -72,28 +72,28 @@ export const CompanyCard = ({hash, image, rateDis, rate, rating, user, popular, 
             <div className="company-get-quote">Get Quote</div>
 
             {popular === true && (
-                <div className='company-call'> <img src={call} /> &nbsp;&nbsp; Call Now </div>
+                <div className='company-call'> <img alt="" src={call} /> &nbsp;&nbsp; Call Now </div>
             )}
         </div>
 
         {greycard === true && (
             <div className="greycard media-flex-center-col">
                 <div className='align-left'>
-                    <img src={piggy} alt="" /> &nbsp;
+                    <img alt="" src={piggy}  /> &nbsp;
                     <div>
                     Flexible solar financing options with as little as $0 up front
                     </div>
                 </div>
                 <div className='media-space20' />
                 <div>
-                    <img src={service} alt="" /> &nbsp;
+                    <img alt="" src={service}  /> &nbsp;
                     <div>
                     High-quality, professional, local installation
                     </div>
                 </div>
                 <div className='media-space20' />
                 <div>
-                    <img src={allcheck} alt="" /> &nbsp;
+                    <img alt="" src={allcheck}  /> &nbsp;
 
                     <div>
                     Complete no-hassle system guarantee

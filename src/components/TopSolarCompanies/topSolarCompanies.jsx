@@ -9,7 +9,7 @@ export const TopSolarCompanies = () => {
     return <div className="top-solar-companies">
 
         <div className='flex-center solar'>
-            <img src={logo} />&nbsp;
+            <img alt="" src={logo} />&nbsp;
             <div className='small bold'>Solar Panel Quotes</div>
         </div>
 
@@ -1751,12 +1751,12 @@ export const TopSolarCompanies = () => {
 
         <footer>
             <div className="bg-green">
-            <img src={footer} className="footer-img" />
+            <img alt="" src={footer} className="footer-img" />
             </div>
 
             <div className='footer-links'>
             <div className='small logo flex-center'>
-                <img src={logo} /> &nbsp;<span className='bold'>Solar Panel</span> Quotes
+                <img alt="" src={logo} /> &nbsp;<span className='bold'>Solar Panel</span> Quotes
             </div>
             |
             <div className='xsmall bold'>Copyright © 2021 | Eruptic Inc.</div>

@@ -6,7 +6,7 @@ import footer from '../../assets/footer.svg'
 import '../../mediaquery.css';
 import { Landing } from '../Landing/landing.component';
 import logo from '../../assets/logo.svg';
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { CompanyComparision } from '../CompanyComparision/companycomparision.component';
 
 
@@ -29,7 +29,7 @@ export function AppStart() {
         <div className="AppStart">
 
         <div className='flex-center solar'>
-            <img src={logo} />&nbsp;
+            <img alt="" src={logo} />&nbsp;
             <div className='small bold'>Solar Panel Quotes</div>
         </div>
         
@@ -42,12 +42,12 @@ export function AppStart() {
         
         <footer>
             <div className="bg-green">
-            <img src={footer} className="footer-img" />
+            <img alt="" src={footer} className="footer-img" />
             </div>
 
             <div className='footer-links'>
             <div className='small logo flex-center'>
-                <img src={logo} /> &nbsp;<span className='bold'>Solar Panel</span> Quotes
+                <img alt="" src={logo} /> &nbsp;<span className='bold'>Solar Panel</span> Quotes
             </div>
             |
             <div className='xsmall bold'>Copyright © 2021 | Adstia LLC</div>

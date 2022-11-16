@@ -7,7 +7,7 @@ export const ReviewCard = ({head, content, name}) => (
     <div className='review-card'>
 
         <div>
-            <img src={staryellow} />
+            <img alt="" src={staryellow} />
         </div>
 
         <div className='space15'></div>

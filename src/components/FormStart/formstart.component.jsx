@@ -32,7 +32,7 @@ export const FormStart = ({ setCusAdd, setFormSubmited, setName}) => {
                 'ad_id':  search.get('ADID')});
         })   
         
-    },[])
+    },[search])
 
     return(
         <div>
@@ -59,12 +59,12 @@ export const FormStart = ({ setCusAdd, setFormSubmited, setName}) => {
 
                     <span className='dark-grey medium media-font-22 bold'>Excellent</span>
 
-                    <img src={rating5s} />
+                    <img alt="" src={rating5s} />
 
                     <span className='dark-grey media- small'>Based on 786 reviews</span>
 
                     <div>
-                        <img src={trustpilot} />
+                        <img alt="" src={trustpilot} />
                     </div>
                 
                 </div>

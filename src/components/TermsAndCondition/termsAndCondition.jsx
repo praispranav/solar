@@ -3,13 +3,12 @@ import React from "react";
 import './termsAndCondition.css';
 
 import logo from '../../assets/logo.svg';
-import footer from '../../assets/footer.svg';
 
 export const TermsAndCondition = () => {
     return <div className="terms-and-condition">
 
         <div className='flex-center solar'>
-            <img src={logo} />&nbsp;
+            <img alt="" src={logo} />&nbsp;
             <div className='small bold'>Solar Panel Quotes</div>
         </div>
 

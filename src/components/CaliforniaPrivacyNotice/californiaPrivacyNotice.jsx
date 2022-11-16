@@ -3,13 +3,12 @@ import React from "react";
 import './californiaPrivacyNotice.css';
 
 import logo from '../../assets/logo.svg';
-import footer from '../../assets/footer.svg'
 
 export const CaliforniPrivacyNotice = () => {
     return <div className="california-privacy-notice">
 
         <div className='flex-center solar'>
-            <img src={logo} />&nbsp;
+            <img alt="" src={logo} />&nbsp;
             <div className='small bold'>Solar Panel Quotes</div>
         </div>
         
