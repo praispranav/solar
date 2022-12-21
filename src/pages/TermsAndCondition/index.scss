@@ -1,0 +1,32 @@
+.top-solar-companies{
+    background-image: url('../../assets/lander.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    overflow: auto;
+    backdrop-filter: blur(5px);
+}
+
+.top-solar-companies-content{
+    width: 100%;
+    backdrop-filter: blur(3px);
+    padding: 0px 5%;
+}
+
+.align-left{
+    text-align: left;
+}
+
+.inner-pages-text{
+    padding: 20px 20%;
+}
+
+.inner-pages-text p {
+    font-family: 'Poppins', sans-serif;
+}
+
+.c-p-n-table tr td{
+    padding: 4px 10px;
+    font-family: 'Poppins', sans-serif;
+}

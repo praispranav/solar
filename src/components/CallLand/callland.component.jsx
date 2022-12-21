@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../../assets/logo.svg';
 import "./callland.stylesheet.css";
 import call_icon from './call-icon.png';
 import image1 from './impage1.png';
@@ -9,13 +8,16 @@ import image4 from './image4.png';
 import image5 from './image5.png';
 import number from './number.png';
 import tick from './tick.png';
-import rating5s from '../../assets/rating5s.svg';
-import trustpilot from '../../assets/trustpilot.svg';
+
 import { ReviewCard } from '../ReviewCard/reviewcard.component';
 import solarloan from '../Landing/solar-loan.svg';
 import cashpurchase from '../Landing/cash-purchase.svg';
-import footer from '../../assets/footer.svg'
 import float from './float.png';
+
+const logo = '/assets/images/logo.svg';
+const rating5s = '/assets/images/rating5s.svg';
+const trustpilot = '/assets/images/trustpilot.svg';
+const footer = '/assets/images/footer.svg'
 
 
 export const CallLand = () => {

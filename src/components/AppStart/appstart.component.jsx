@@ -3,7 +3,6 @@ import { FormStart } from '../FormStart/formstart.component';
 import { PostForm } from '../PostForm/postform.component';
 import { useState } from 'react';
 import footer from '../../assets/footer.svg'
-import '../../mediaquery.css';
 import { Landing } from '../Landing/landing.component';
 import logo from '../../assets/logo.svg';
 import { Route, Routes, useNavigate } from 'react-router-dom';

@@ -1,7 +1,7 @@
 import React from 'react';
-import staryellow from '../../assets/rating5s.svg';
 import './reviewcard.stylesheet.css';
 
+const staryellow = '/assets/images/rating5s.svg';
 
 export const ReviewCard = ({head, content, name}) => (
     <div className='review-card'>

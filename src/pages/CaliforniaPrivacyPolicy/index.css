@@ -1,0 +1,12 @@
+.inner-pages-text{
+    padding: 20px 20%;
+}
+
+.inner-pages-text p {
+    font-family: 'Poppins', sans-serif;
+}
+
+.c-p-n-table tr td{
+    padding: 4px 10px;
+    font-family: 'Poppins', sans-serif;
+}
