@@ -1,57 +1,22 @@
-import "./index.css";
-import { FormStart } from "src/components/FormStart/formstart.component";
-import { PostForm } from "../../PostForm/postform.component";
-import { useState } from "react";
-import footer from "../../assets/footer.svg";
-import "../../mediaquery.css";
-import { Landing } from "../../Landing/landing.component";
-import logo from "../../assets/logo.svg";
-import { Route, Routes, useNavigate } from "react-router-dom";
-import { CompanyComparision } from "../CompanyComparision/companycomparision.component";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./index.scss";
 
-export function AppStart() {
-  const [formSubmited, setFormSubmited] = useState(false);
-  const [name, setName] = useState("");
-  const [cusAdd, setCusAdd] = useState("");
-  const [preForm, setPreForm] = useState(true);
+const footer = "/assets/images/footer.svg";
+const logo = "/assets/images/logo.svg";
+
+export default function Wrapper(props) {
   const navigate = useNavigate();
-
-  const Decide = () => (
-    <div>
-      {formSubmited ? (
-        <PostForm name={name} add={cusAdd} />
-      ) : (
-        <FormStart
-          setFormSubmited={setFormSubmited}
-          setCusAdd={setCusAdd}
-          setName={setName}
-        />
-      )}
-    </div>
-  );
 
   return (
     <div className="AppStart">
-      <div className="flex-center solar">
+      <div className="flex-center solar sticky-top">
         <img alt="" src={logo} />
         &nbsp;
         <div className="small bold">Solar Panel Quotes</div>
       </div>
 
-      <Routes>
-        <Route
-          exact
-          path="/"
-          element={<Landing preForm={preForm} setPreForm={setPreForm} />}
-        />
-        <Route
-          exact
-          path="/:cid"
-          element={<Landing preForm={preForm} setPreForm={setPreForm} />}
-        />
-        <Route path="/form" element={<Decide />} />
-        <Route path="/companies" element={<CompanyComparision />} />
-      </Routes>
+      {props.children}
 
       <footer>
         <div className="bg-green">

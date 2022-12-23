@@ -1,5 +1,8 @@
 export const ROUTES = {
-    all: "*",
+    form: "/form",
+    
+    seeIfUQualify: "/form/see-if-qualify",
+
     callland: "/callland",
     topSolarCompanies: "/top-solar-companies",
     californiaPrivacyNotice: "/california-privacy-notice",

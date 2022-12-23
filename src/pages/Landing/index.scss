@@ -1,14 +1,14 @@
-* {
+*{
     font-family: 'Poppins', sans-serif;
 }
 
-.landing {
+.landing{
     width: 100%;
     min-height: 100vh;
     background-color: #fefdfb;
 }
 
-.lander {
+.lander{
     padding: 160px 20%;
     background-image: url("../../assets/lander.png");
     background-position: center;
@@ -16,7 +16,7 @@
     background-repeat: no-repeat;
 }
 
-.lander-button {
+.lander-button{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -34,25 +34,34 @@
     cursor: pointer;
 }
 
-.lander-button:hover {
+.lander-button:hover{
     transform: scale(1.05);
 }
 
+.lander-input{
+    width: 225px;
+    height: 50px;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #F9E1C2;
+}
 
-.lander>div>form>input,
-.lander>div>form>button {
+.lander> div > form > input, .lander> div > form > button{
     margin: 0 10px;
 }
 
-.branding {
+.branding{
     padding: 100px 20%;
 }
 
-.inside-float-left>div {
+.inside-float-left > div{
     float: left;
 }
 
-.flex-col-align-cen {
+.flex-col-align-cen{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -61,15 +70,15 @@
     padding: 20px 0px;
 }
 
-.your-choice {
+.your-choice{
     padding: 50px 10%;
 }
 
-.payment-option {
+.payment-option{
     padding: 40px 18%;
 }
 
-.cash-option {
+.cash-option{
     position: relative;
     width: 35%;
     background-color: white;
@@ -81,7 +90,7 @@
     min-height: 420px;
 }
 
-.most-popular {
+.most-popular{
     color: white;
     background-color: #00BC66;
     position: absolute;
@@ -95,13 +104,13 @@
     border-radius: 7px 7px 0 0;
 }
 
-.cash-option>ul {
+.cash-option > ul{
     margin: 0;
     padding: 0 30px;
-    list-style-image: url("./list-icon.svg");
+    list-style-image: url("../../assets/list-icon.svg");
 }
 
-.home-solution {
+.home-solution{
     padding: 85px;
     width: 70%;
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), linear-gradient(0deg, rgba(251, 146, 60, 0.5), rgba(251, 146, 60, 0.5)), url("../../assets/image3.jpg");
@@ -114,33 +123,33 @@
 
 .checked {
     color: #EA580C;
-}
+  }
 
-.align-left {
+.align-left{
     text-align: left;
 }
 
-.padding-w12 {
+.padding-w12{
     padding: 30px 12%;
 }
 
-.features {
+.features{
     padding: 0 10%;
     display: flex;
 }
 
-.features>div {
+.features > div{
     margin: 0 20px;
     text-align: left;
     padding: 0;
 }
 
-.space20 {
+.space20{
     width: 100px;
     height: 20px;
 }
 
-.details {
+.details{
     width: 100%;
     padding: 72px;
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), linear-gradient(0deg, rgba(251, 146, 60, 0.5), rgba(251, 146, 60, 0.5));
@@ -150,7 +159,7 @@
     background-size: cover;
 }
 
-.details details {
+.details details{
     width: 80%;
     background-color: white;
     border-radius: 10px;
@@ -161,32 +170,65 @@
     text-align: left;
 }
 
-.details details summary {
+.details details summary{
     cursor: pointer;
     color: #41414a;
     transition: 0.2s;
 }
 
-.details details[open]>summary {
+.details details[open] > summary{
     color: #FB923C;
 }
 
-.details details[open] {
+.details details[open]{
     border: 1px solid #FB923C;
 }
 
-.flex-align-cen {
+.flex-align-cen{
     display: flex;
     align-items: center;
 }
 
-.lander-input {
-    width: 225px;
-    height: 50px;
-    padding: 10px 20px;
-    font-size: 20px;
+
+
+
+
+
+.preform{
+    padding: 100px 0;
     font-family: 'Poppins', sans-serif;
-    text-align: center;
+    background: linear-gradient(0deg, rgba(253, 244, 237, 0.9), rgba(253, 244, 237, 0.9)), url('../../assets/image.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.preform .quote{
+    width: 65%;
+}
+
+.space25{
+    width: 50px;
+    height: 25px;
+}
+
+.qualify-button{
+    background: linear-gradient(267.78deg, #FB923C 0.19%, #BC5C4F 72.78%);
     border-radius: 5px;
-    border: 1px solid #F9E1C2;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+    gap: 10px;
+    color: white;
+    border: 0px solid;
+    width: 280px;
+    height: 55px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    font-family: 'Poppins', sans-serif;
+}
+
+.qualify-button:hover{
+    transform: scale(1.03);
 }
