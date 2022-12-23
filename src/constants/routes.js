@@ -2,6 +2,11 @@ export const ROUTES = {
     form: "/form",
     
     seeIfUQualify: "/form/see-if-qualify",
+    monthlyElectricBill: "/form/monthly-electric-bill",
+    homeShades: "/form/home-shades",
+    homeOwner: "/form/home-owner",
+    nameEmail: "/form/name-email",
+    congrats: "/form/congrats",
 
     callland: "/callland",
     topSolarCompanies: "/top-solar-companies",

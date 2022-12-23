@@ -113,7 +113,7 @@ const Post = ({ number, name, sec, min }) => {
   );
 };
 
-export const PostForm = ({ name, add }) => {
+const Congrats = ({ name, add }) => {
   const [min, setMin] = useState(3);
   const [sec, setSec] = useState(3);
   const [num, setNum] = useState();
@@ -165,6 +165,10 @@ export const PostForm = ({ name, add }) => {
     });
   });
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   while (true) {
     setTimeout(function () {
       if (min === 0 && sec === 0) {
@@ -185,3 +189,5 @@ export const PostForm = ({ name, add }) => {
     );
   }
 };
+
+export default Congrats
