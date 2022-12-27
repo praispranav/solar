@@ -1,11 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { ROUTES } from "../../constants/routes";
-import { sessionStorageKeys } from "../../constants/localStorage";
+import {
+  sessionStorageKeys,
+  localStorageKeys,
+} from "../../constants/localStorage";
 import { LEAD } from "../../constants/lead";
 import { Helmet } from "react-helmet-async";
+import { useInitRingba, useRgbaHook } from "../../hooks/useRgba";
+import { useGeneratorQuery } from "../../hooks/useGeneratorQuery";
+import { useDataLayer } from "../../hooks/useDataLayer";
+import axios from "axios";
+import Cookies from "js-cookie";
+import { REDIRECT_AND_STORAGE_KEYS } from "../../constants/queryStrings";
+import * as yup from "yup";
+import { useFormik } from "formik";
+import PropagateLoader from "react-spinners/PropagateLoader";
 
+const errorimg = "/assets/images/error.svg";
 const im1 = "/assets/images/landing/image1.svg";
 const im2 = "/assets/images/landing/image2.svg";
 const im3 = "/assets/images/landing/image3.svg";
@@ -19,11 +32,183 @@ const solarloan = "/assets/images/landing/solar-loan.svg";
 const cashpurchase = "/assets/images/landing/cash-purchase.svg";
 const light = "/assets/images/light.svg";
 
+const initialValues = {
+  zip: "",
+};
+
+const validationSchema = yup.object({
+  zip: yup
+    .string()
+    .required("Zip Code is Required")
+    .matches(/^[0-9]+$/, "Must be only digits")
+    .min(5, "Zip code should be of 5 digit.")
+    .max(5, "Zip code should be of 5 digit."),
+});
+
 const Landing = () => {
   const navigate = useNavigate();
+  const initRingba = useInitRingba();
+  const { storeRgbaData } = useRgbaHook();
+  const generatorQuery = useGeneratorQuery();
+  const dataLayer = useDataLayer();
+  const [loading, setLoading] = useState(false);
+  const [response, setResponse] = useState({});
+  const [search] = useSearchParams();
+  const fbc = Cookies.get("_fbc") || "";
+  const fbp = Cookies.get("_fbp") || "";
 
-  const pre = () => {
-    navigate(ROUTES.seeIfUQualify);
+  const {
+    handleSubmit,
+    touched,
+    setErrors,
+    errors,
+    setValues,
+    values,
+    handleChange,
+    handleBlur,
+  } = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit: (values, event) => {
+      if (!loading) {
+        const JornayaToken = document.getElementById("leadid_token").value;
+        sessionStorage.setItem(sessionStorageKeys.zip, String(values.zip));
+        onSubmit(values.zip);
+        storeRgbaData("zip", values.zip);
+
+        storeRgbaData("lead_id", JornayaToken);
+        storeRgbaData("user_agent", window.navigator.userAgent);
+
+        dataLayer.set("state", response.state);
+        dataLayer.set("city", response.city);
+      }
+    },
+  });
+
+  const onSubmit = (zip) => {
+    const JornayaToken = document.getElementById("leadid_token").value;
+    setLoading(true);
+    setResponse({ city: "", state: "" });
+    sessionStorage.setItem(
+      sessionStorageKeys.zipCodeExtraValues,
+      JSON.stringify({
+        user_agent: navigator.userAgent,
+        fbc: "",
+        fbp: "",
+        city: "",
+        state: "",
+        JornayaToken: JornayaToken,
+      })
+    );
+    axios
+      .get("https://api.zippopotam.us/us/" + zip, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        mode: "no-cors",
+      })
+      .then((response) => {
+        const obj = response.data;
+        const keys = Object.keys(obj);
+        dataLayer.set("zip", zip);
+        if (keys.length === 0) return setErrors({ zip: "Zip Code not valid" });
+        setResponse({
+          city: response.data["places"][0]["place name"],
+          state: response.data["places"][0]["state abbreviation"],
+        });
+        storeRgbaData("city", response.data["places"][0]["place name"]);
+        storeRgbaData(
+          "state",
+          response.data["places"][0]["state abbreviation"]
+        );
+        sessionStorage.setItem(
+          sessionStorageKeys.zipCodeExtraValues,
+          JSON.stringify({
+            user_agent: navigator.userAgent,
+            fbc: fbc,
+            fbp: fbp,
+            city: response.data["places"][0]["place name"],
+            state: response.data["places"][0]["state abbreviation"],
+            JornayaToken: JornayaToken,
+          })
+        );
+        navigate({
+          pathname: ROUTES.seeIfUQualify,
+          search: generatorQuery.get(),
+        });
+        setLoading(false);
+      })
+      .catch((error) => {
+        setErrors({ zip: "Zip Code not valid" });
+        setLoading(false);
+        console.error(error);
+      });
+  };
+
+  const storeInitialData = (userIp) => {
+    const redirectQueries = {
+      userIp,
+    };
+
+    REDIRECT_AND_STORAGE_KEYS.forEach((obj) => {
+      redirectQueries[obj.storageKey] = search.get(obj.redirectString) || "";
+      storeRgbaData(obj.ringbaKey, search.get(obj.redirectString));
+    });
+    storeRgbaData("userIp", userIp);
+
+    sessionStorage.setItem(
+      sessionStorageKeys.utm_fbclid,
+      JSON.stringify(redirectQueries)
+    );
+
+    for (const entry of search.entries()) {
+      generatorQuery.set(entry[0], entry[1]);
+      console.log("Entry", entry);
+    }
+
+    storeRgbaData(
+      "visitor_id",
+      localStorage.getItem(localStorageKeys.visitorId)
+    );
+  };
+
+  const getIpAdd = async () => {
+    let userIp;
+    try {
+      var response;
+      response = await axios.get(
+        "https://geolocation-db.com/json/0f761a30-fe14-11e9-b59f-e53803842572",
+        {
+          method: "GET",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      userIp = response.data["IPv4"];
+    } catch (error) {
+      console.error(error);
+    }
+    storeInitialData(userIp);
+  };
+
+  useEffect(() => {
+    getIpAdd();
+  }, []);
+
+  const onChangeZipValue = (e) => {
+    const value = e.target.value;
+    const obj = {
+      target: {
+        name: "zip",
+        value: String(value).slice(0, 5),
+      },
+    };
+
+    handleChange(obj);
   };
 
   return (
@@ -44,14 +229,41 @@ const Landing = () => {
           </div>
           <div className="space25" />
           <div className="flex-center">
-            <form className="flex-center flex-wrap" onSubmit={pre}>
-              <input
-                required
-                type="number"
-                className="lander-input"
-                placeholder="Enter ZIP code"
-              />
-              <button className="lander-button">Get Free Quote</button>
+            <form className="flex flex-wrap" onSubmit={handleSubmit}>
+              <div>
+                <input
+                  required
+                  type="number"
+                  className="lander-input"
+                  placeholder="Enter ZIP code"
+                  value={values.zip}
+                  onChange={onChangeZipValue}
+                  onBlur={handleBlur}
+                  maxLength={5}
+                  max={99999}
+                  name="zip"
+                />
+                {errors.zip && touched.zip ? (
+                  <div className="form-error font-12 form-error-2">
+                    <img src={errorimg} alt="" /> &nbsp;&nbsp; {errors.zip}
+                  </div>
+                ) : (
+                  ""
+                )}
+              </div>
+              <button type="submit" className="lander-button">
+                {loading ? (
+                  <>
+                    <PropagateLoader
+                      color="#edd185"
+                      className="margin-loader"
+                    />
+                    <p className="visibility-hidden">.</p>{" "}
+                  </>
+                ) : (
+                  <>Get Free Quote</>
+                )}
+              </button>
             </form>
           </div>
         </div>

@@ -15,7 +15,7 @@ export default function Wrapper(props) {
 
   return (
     <div className="AppStart">
-      {route.pathname !== "/" && route.pathname !== ROUTES.seeIfUQualify ? (
+      {route.pathname !== ROUTES.seeIfUQualify ? (
         <input id="leadid_token" name="universal_leadid" type="hidden" />
       ) : undefined}
 
