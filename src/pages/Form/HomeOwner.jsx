@@ -4,11 +4,13 @@ import { sessionStorageKeys } from "../../constants/localStorage";
 import { ROUTES } from "../../constants/routes";
 import { YES_NO } from "../../constants/yesNo";
 import { useGeneratorQuery } from "../../hooks/useGeneratorQuery";
+import { useRgbaHook } from "../../hooks/useRgba";
 import "./index.scss"
 
 export default function HomeOwner() {
   const navigate = useNavigate();
   const generatorQuery = useGeneratorQuery()
+  const { storeRgbaData } = useRgbaHook()
 
   const handleNext = (yesno) => {
     storeRgbaData('homeOwner', yesno);
