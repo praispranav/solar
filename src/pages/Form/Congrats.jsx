@@ -3,6 +3,9 @@ import React, { useEffect, useState } from "react";
 import "./index.scss";
 import { sessionStorageKeys } from "../../constants/localStorage";
 import { useInitRingba } from "../../hooks/useRgba"
+import { ROUTES } from "../../constants/routes";
+import { useNavigate } from "react-router-dom";
+import { useGeneratorQuery } from "../../hooks/useGeneratorQuery";
 
 const call = "/assets/images/call/call.svg";
 const agent = "/assets/images/call/agent.svg";
@@ -130,10 +133,22 @@ const Congrats = ({ name, address }) => {
   const [min, setMin] = useState(3);
   const [sec, setSec] = useState(3);
   const [num, setNum] = useState();
+  const navigate = useNavigate();
+  const generatorQuery = useGeneratorQuery();
+
+  const checkOldFormValues = () => {
+    if (!sessionStorage.getItem(sessionStorageKeys.firstName))
+      return navigate({
+        pathname: ROUTES.nameEmail,
+        search: generatorQuery.get(),
+      });
+  };
 
   useEffect(() => {
+    checkOldFormValues()
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
 
   while (true) {
     setTimeout(function () {

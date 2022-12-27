@@ -5,20 +5,32 @@ import { MONTHLY_ELECTRIC_BILL } from "../../constants/monthlyElectricBill";
 import { ROUTES } from "../../constants/routes";
 import './index.scss'
 import { useGeneratorQuery } from "../../hooks/useGeneratorQuery";
+import { useRgbaHook } from "../../hooks/useRgba";
 
 export default function MonthlyElectricBill() {
     const navigate = useNavigate();
-    const generatorQuery = useGeneratorQuery()
+    const generatorQuery = useGeneratorQuery();
+    const { storeRgbaData } = useRgbaHook()
 
   const handleNext = (bill) => {
     sessionStorage.setItem(sessionStorageKeys.bill, bill)
+    storeRgbaData('electricBill', bill)
     navigate({
       pathname: ROUTES.homeShades,
       search: generatorQuery.get(),
     })
   };
 
+  const checkOldFormValues = () => {
+    if (!sessionStorage.getItem(sessionStorageKeys.zip))
+      return navigate({
+        pathname: '/',
+        search: generatorQuery.get(),
+      });
+  };
+
   useEffect(() => {
+    checkOldFormValues()
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 

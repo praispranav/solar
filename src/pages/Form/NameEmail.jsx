@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../constants/routes";
 import { sessionStorageKeys } from "../../constants/localStorage";
 import { LEAD } from "../../constants/lead";
+import { useGeneratorQuery } from "../../hooks/useGeneratorQuery";
+import { useRgbaHook } from "../../hooks/useRgba";
 
 const errorimg = "/assets/images/error.svg";
 
@@ -32,10 +34,12 @@ const validationSchema = yup.object({
 
 export default function NameEmail() {
   const navigate = useNavigate();
+  const generatorQuery = useGeneratorQuery();
+  const { storeRgbaData } = useRgbaHook()
 
   const removeLeadScript = () => {
-    const leadInput = window.document.getElementById('leadid_token');
-    if(leadInput) leadInput.remove();
+    const leadInput = window.document.getElementById("leadid_token");
+    if (leadInput) leadInput.remove();
     const leadNode = window.document.getElementById(LEAD.id);
     if (leadNode) leadNode.remove();
     const leadWrapper = window.document.getElementById(LEAD.wrapperId);
@@ -60,12 +64,36 @@ export default function NameEmail() {
       sessionStorage.setItem(sessionStorageKeys.email, values.email);
       sessionStorage.setItem(sessionStorageKeys.mobile, values.mobile);
 
+      storeRgbaData('firstName', values.firstName)
+      storeRgbaData('lastName', values.lastName)
+      storeRgbaData('email', values.email)
+      storeRgbaData('mobile', values.mobile)
+
       removeLeadScript();
       navigate(ROUTES.congrats);
     },
   });
 
+  const fillOldValue = () => {
+    const firstName = sessionStorage.getItem(sessionStorageKeys.firstName);
+    const lastName = sessionStorage.getItem(sessionStorageKeys.lastName);
+    const email = sessionStorage.getItem(sessionStorageKeys.email);
+    const mobile = sessionStorage.getItem(sessionStorageKeys.mobile);
+    if(mobile) setValues({ firstName, lastName, email, mobile });
+    else setValues({ firstName, lastName, email });
+  };
+
+  const checkOldFormValues = () => {
+    if (!sessionStorage.getItem(sessionStorageKeys.homeOwner))
+      return navigate({
+        pathname: ROUTES.homeOwner,
+        search: generatorQuery.get(),
+      });
+  };
+
   useEffect(() => {
+    checkOldFormValues();
+    fillOldValue();
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
@@ -152,11 +180,12 @@ export default function NameEmail() {
             country={"us"}
             onlyCountries={["us"]}
             value={values.mobile}
-            // onChange={(value) =>
-            //   handleChange({ target: { value, name: "mobile" } })
-            // }
             name="mobile"
-            inputProps={{ name: "mobile", onBlur: handleBlur, onChange: handleChange }}
+            inputProps={{
+              name: "mobile",
+              onBlur: handleBlur,
+              onChange: handleChange,
+            }}
             containerStyle={{
               width: "100%",
               height: "64px",
@@ -167,10 +196,9 @@ export default function NameEmail() {
           />
 
           <div className="form-error font-12 form-error-2 mb-2">
-            {(errors.mobile && touched.mobile) ? (
+            {errors.mobile && touched.mobile ? (
               <>
-                <img src={errorimg} alt="" /> &nbsp;&nbsp;{" "}
-                  {errors.mobile}
+                <img src={errorimg} alt="" /> &nbsp;&nbsp; {errors.mobile}
               </>
             ) : (
               ""

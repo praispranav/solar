@@ -11,14 +11,25 @@ export default function HomeOwner() {
   const generatorQuery = useGeneratorQuery()
 
   const handleNext = (yesno) => {
+    storeRgbaData('homeOwner', yesno);
     sessionStorage.setItem(sessionStorageKeys.homeOwner, yesno);
     navigate({
       pathname: ROUTES.nameEmail,
       search: generatorQuery.get(),
     })
   };
+
+  const checkOldFormValues = () => {
+    if (!sessionStorage.getItem(sessionStorageKeys.shade))
+      return navigate({
+        pathname: ROUTES.homeShades,
+        search: generatorQuery.get(),
+      });
+  };
+
   
   useEffect(() => {
+    checkOldFormValues();
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 

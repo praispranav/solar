@@ -5,12 +5,15 @@ import { sessionStorageKeys } from "../../constants/localStorage";
 import { ROUTES } from "../../constants/routes";
 import "./index.scss"
 import { useGeneratorQuery } from "../../hooks/useGeneratorQuery";
+import { useRgbaHook } from "../../hooks/useRgba";
 
 export default function HomeShades() {
   const navigate = useNavigate();
-  const generatorQuery = useGeneratorQuery()
+  const generatorQuery = useGeneratorQuery();
+  const { storeRgbaData } = useRgbaHook();
 
   const handleNext = (shadeValue) => {
+    storeRgbaData('shade', shadeValue);
     sessionStorage.setItem(sessionStorageKeys.shade, shadeValue);
     navigate({
       pathname: ROUTES.homeOwner,
@@ -18,7 +21,16 @@ export default function HomeShades() {
     })
   };
 
+  const checkOldFormValues = () => {
+    if (!sessionStorage.getItem(sessionStorageKeys.bill))
+      return navigate({
+        pathname: ROUTES.monthlyElectricBill,
+        search: generatorQuery.get(),
+      });
+  };
+
   useEffect(() => {
+  checkOldFormValues()
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
   return (
