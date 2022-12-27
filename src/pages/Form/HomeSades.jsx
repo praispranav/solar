@@ -4,13 +4,18 @@ import { HOME_SHADES } from "../../constants/homeShades";
 import { sessionStorageKeys } from "../../constants/localStorage";
 import { ROUTES } from "../../constants/routes";
 import "./index.scss"
+import { useGeneratorQuery } from "../../hooks/useGeneratorQuery";
 
 export default function HomeShades() {
   const navigate = useNavigate();
+  const generatorQuery = useGeneratorQuery()
 
   const handleNext = (shadeValue) => {
     sessionStorage.setItem(sessionStorageKeys.shade, shadeValue);
-    navigate(ROUTES.homeOwner)
+    navigate({
+      pathname: ROUTES.homeOwner,
+      search: generatorQuery.get(),
+    })
   };
 
   useEffect(() => {

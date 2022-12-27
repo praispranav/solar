@@ -4,13 +4,18 @@ import { sessionStorageKeys } from "../../constants/localStorage";
 import { MONTHLY_ELECTRIC_BILL } from "../../constants/monthlyElectricBill";
 import { ROUTES } from "../../constants/routes";
 import './index.scss'
+import { useGeneratorQuery } from "../../hooks/useGeneratorQuery";
 
 export default function MonthlyElectricBill() {
     const navigate = useNavigate();
+    const generatorQuery = useGeneratorQuery()
 
   const handleNext = (bill) => {
     sessionStorage.setItem(sessionStorageKeys.bill, bill)
-    navigate(ROUTES.homeShades);
+    navigate({
+      pathname: ROUTES.homeShades,
+      search: generatorQuery.get(),
+    })
   };
 
   useEffect(() => {

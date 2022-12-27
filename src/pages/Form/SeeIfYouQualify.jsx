@@ -1,44 +1,35 @@
 import React from "react";
 
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 import { ROUTES } from "../../constants/routes";
-import "./index.scss"
+import "./index.scss";
+import { useGeneratorQuery } from "../../hooks/useGeneratorQuery";
 
-const light = '/assets/images/light.svg';
+const light = "/assets/images/light.svg";
 
 const SeeIfYouQualify = () => {
-  const [form, setForm] = useState({});
   const [search] = useSearchParams();
+  const generatorQuery = useGeneratorQuery();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    axios
-      .get(
-        "https://geolocation-db.com/json/0f761a30-fe14-11e9-b59f-e53803842572"
-      )
-      .then((response) => {
-        setForm({
-          userIp: response.data["IPv4"],
-          Campaign_Name: search.get("CID"),
-          Adset_Name: search.get("ADS_ID"),
-          Ad_Name: search.get("ADID"),
-          fbclid: search.get("fbclid"),
-          utm_source: search.get("utm_source"),
-        });
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          utm_source: search.get("utm_source"),
-          campaign_id: search.get("CID"),
-          adset_id: search.get("ADS_ID"),
-          ad_id: search.get("ADID"),
-        });
-      });
-  }, [search]);
+  const next = () => {
+    storeQuery();
+    navigate({
+      pathname: ROUTES.monthlyElectricBill,
+      search: generatorQuery.get(),
+    });
+  };
+
+  const storeQuery = () => {
+    for (const entry of search.entries()) {
+      generatorQuery.set(entry[0], entry[1]);
+    }
+  };
 
   useEffect(() => {
+ 
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
@@ -74,7 +65,7 @@ const SeeIfYouQualify = () => {
           <button
             className="qualify-button media-font-22 medium"
             onClick={() => {
-              navigate(ROUTES.monthlyElectricBill)
+              next();
             }}
           >
             See If You Qualify

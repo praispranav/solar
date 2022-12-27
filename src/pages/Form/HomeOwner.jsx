@@ -3,14 +3,19 @@ import { useNavigate } from "react-router-dom";
 import { sessionStorageKeys } from "../../constants/localStorage";
 import { ROUTES } from "../../constants/routes";
 import { YES_NO } from "../../constants/yesNo";
+import { useGeneratorQuery } from "../../hooks/useGeneratorQuery";
 import "./index.scss"
 
 export default function HomeOwner() {
   const navigate = useNavigate();
+  const generatorQuery = useGeneratorQuery()
 
   const handleNext = (yesno) => {
     sessionStorage.setItem(sessionStorageKeys.homeOwner, yesno);
-    navigate(ROUTES.nameEmail);
+    navigate({
+      pathname: ROUTES.nameEmail,
+      search: generatorQuery.get(),
+    })
   };
   
   useEffect(() => {

@@ -16,4 +16,5 @@ export const sessionStorageKeys = {
     countryCode: "countryCode",
     
     zipCodeExtraValues: "zipCodeExtraValues",
+    generator: "generator"
 }

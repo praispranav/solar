@@ -164,7 +164,6 @@ const Landing = () => {
 
     for (const entry of search.entries()) {
       generatorQuery.set(entry[0], entry[1]);
-      console.log("Entry", entry);
     }
 
     storeRgbaData(
@@ -251,7 +250,7 @@ const Landing = () => {
                   ""
                 )}
               </div>
-              <button type="submit" className="lander-button">
+              <button disabled={errors.zip} type="submit" className="lander-button">
                 {loading ? (
                   <>
                     <PropagateLoader
