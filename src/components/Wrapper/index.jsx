@@ -89,7 +89,7 @@ export default function Wrapper(props) {
             <span
               className="pointer"
               onClick={() => {
-                navigate("/california-privacy-notice");
+                navigate({pathname: ROUTES.californiaPrivacyNotice});
               }}
             >
               CALIFORNIA PRIVACY
@@ -98,16 +98,16 @@ export default function Wrapper(props) {
             <span
               className="pointer"
               onClick={() => {
-                navigate("/privacy-policy");
+                navigate({ pathname: ROUTES.privacyPolicy });
               }}
             >
               PRIVACY POLICY
-            </span>{" "}
-            |{" "}
+            </span>{' '}
+            |{' '}
             <span
               className="pointer"
               onClick={() => {
-                navigate("/terms-and-condition");
+                navigate({ pathname: ROUTES.termsAndCondition });
               }}
             >
               TERMS OF USE

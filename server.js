@@ -17,7 +17,7 @@ const generateRoutes = (routes) => {
 
 const ROUTES = {
   form: "/form",
-
+    
   seeIfUQualify: "/form/see-if-qualify",
   monthlyElectricBill: "/form/monthly-electric-bill",
   homeShades: "/form/home-shades",
@@ -29,7 +29,7 @@ const ROUTES = {
   topSolarCompanies: "/top-solar-companies",
   californiaPrivacyNotice: "/california-privacy-notice",
   privacyPolicy: "/privacy-policy",
-  termsAndCondition: "/terms-and-condition",
+  termsAndCondition: "/terms-and-condition"
 };
 
 app.use(express.static(path.join(__dirname, "/build")));
