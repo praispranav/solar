@@ -1,6 +1,4 @@
-
-
-
+$primary: #FB923C;
 .call-land .solar-call{
     display: flex;
     align-items: center;
@@ -155,11 +153,11 @@
 }
 
 .call-land-faq div details[open]> summary{
-    color: #FB923C;
+    color: $primary;
 }
 
 .call-land-faq div details[open]{
-    border: 1px solid #FB923C;
+    border: 1px solid $primary;
 }
 
 .call-land-number{
@@ -211,4 +209,15 @@ footer .grey{
     justify-content: center;
     align-items: center;
     height: 44px;
+}
+
+.call-button{
+    background-color: $primary;
+    color: white;
+    padding: 8px 13px;
+    border-radius: 10px;
+}
+
+.number{
+    cursor: pointer !important;
 }

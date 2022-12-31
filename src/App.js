@@ -5,7 +5,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-// import { CallLand } from "./components/CallLand/callland.component";
+import CallLand from "./pages/CallLand";
 import { ROUTES } from "./constants/routes";
 import "./mediaquery.css";
 import "./App.scss";
@@ -113,7 +113,7 @@ function App() {
               />
             </Route>
 
-            {/* <Route path={ROUTES.callland} element={<CallLand />} /> */}
+            <Route path={ROUTES.callland} element={<CallLand />} />
             <Route
               path={ROUTES.topSolarCompanies}
               element={
