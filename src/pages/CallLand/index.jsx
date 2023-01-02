@@ -45,23 +45,6 @@ const CallLand = () => {
         </div>
       </div>
 
-      <div className="call-land-float dis-none">
-        <div>We're Available Now</div>
-
-        <div>
-          Our Fully Trained Experts Are Ready to Help You. <br />
-          Call Now For Your Risk-FREE Quote.
-        </div>
-
-        <div className="number"  onClick={callOnNumber}>
-          <span className="small grey">Call us at</span> &nbsp;
-          <img alt="" src={call_icon} /> &nbsp;
-          <span className="orange bold small">{dynamicNumber || staticNumber}</span>
-        </div>
-
-        <img alt="" src={float} className="call-land-float-icon" />
-      </div>
-
       <div className="call-land-main flex-center-col media-pad-h-5">
         <div className="bold media-font-22 orange font-40">
           Delhi, DL Pest Exterminator
