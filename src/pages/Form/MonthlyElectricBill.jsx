@@ -21,13 +21,7 @@ export default function MonthlyElectricBill() {
     })
   };
 
-  const checkOldFormValues = () => {
-    if (!sessionStorage.getItem(sessionStorageKeys.zip))
-      return navigate({
-        pathname: '/',
-        search: generatorQuery.get(),
-      });
-  };
+  const checkOldFormValues = () => {};
 
   useEffect(() => {
     checkOldFormValues()

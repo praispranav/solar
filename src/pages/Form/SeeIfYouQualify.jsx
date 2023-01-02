@@ -17,7 +17,7 @@ const SeeIfYouQualify = () => {
   const next = () => {
     storeQuery();
     navigate({
-      pathname: ROUTES.monthlyElectricBill,
+      pathname: ROUTES.zip,
       search: generatorQuery.get(),
     });
   };

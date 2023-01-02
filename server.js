@@ -3,18 +3,6 @@ const path = require("path");
 
 const app = express();
 
-const MODULE_TYPE = {
-  full: "full",
-  short: "short",
-  call: "call",
-};
-
-const generateRoutes = (routes) => {
-  let str = "";
-  routes.forEach((route) => (str += `/${route}`));
-  return str;
-};
-
 const ROUTES = {
   form: "/form",
     
