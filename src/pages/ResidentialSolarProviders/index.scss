@@ -1,0 +1,277 @@
+.no-margin-padding {
+    margin: 0px;
+    padding: 0px;
+}
+
+.heading-container {
+    background: linear-gradient(0deg, rgba(253, 244, 237, 0.9), rgba(253, 244, 237, 0.9));
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 174px;
+    flex: 1;
+
+    h1 {
+        font-family: 'Poppins';
+        font-weight: 700;
+        font-size: 32px;
+        text-transform: uppercase;
+        color: #000000;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    p {
+        text-align: center;
+        font-family: 'Poppins';
+        font-weight: 400;
+        font-size: 24px;
+        color: #FB923C;
+    }
+}
+
+.solar-container {
+    max-width: 1268px;
+    margin: auto 3rem;
+    flex: 1;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.solar-provider-header {
+    margin-top: 30px;
+    height: 56px;
+    width: 100%;
+    background: #F8B93A;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex: 1;
+
+    img {
+        position: absolute;
+        left: -20px;
+        top: -25px;
+        object-fit: contain;
+        width: 70px;
+    }
+
+    p {
+        font-family: 'Poppins';
+        font-weight: 700;
+        font-size: 16px;
+        color: #FFFFFF;
+    }
+}
+
+.solar-provider-card {
+    background: #FFFFFF;
+    border: 1px solid #EFEFEF;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.05);
+    border-radius: 7px;
+    padding: 0px 20px;
+    margin-top: 71px;
+
+    &:first-child {
+        margin-top: 0px;
+        border-top-right-radius: 0px;
+        border-top-left-radius: 0px;
+    }
+
+    .position {
+        text-align: left;
+    }
+
+    .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+            flex: 18%;
+        }
+
+        .rating-section {
+            flex: 18%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .rating-number {
+                color: #FB923C;
+                font-family: 'Poppins';
+                font-size: 32px;
+                font-weight: 700;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .quote {
+                font-family: 'Poppins';
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                text-transform: uppercase;
+                color: #EA580C;
+                margin: 0px;
+                padding: 0px;
+            }
+
+            .user-rating {
+                font-family: 'Poppins';
+                font-weight: 400;
+                font-size: 14px;
+                color: #414141;
+                margin: 0px;
+                padding: 0px;
+            }
+        }
+
+        .button-group {
+            flex: 20%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vertical-line {
+            background: #C0C0C0;
+            height: 70px;
+            width: 1px;
+        }
+
+        .company-details {
+            flex: 38%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .company-name {
+                font-family: 'Poppins';
+                font-weight: 600;
+                font-size: 24px;
+                color: #FB923C;
+                @extend .no-margin-padding;
+            }
+
+            .number {
+                font-family: 'Poppins';
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                color: #414141;
+            }
+
+            ul {
+                text-align: left;
+                list-style-image: url('../../assets/tick.svg');
+
+                li {
+                    font-family: 'Poppins';
+                    font-weight: 400;
+                    font-size: 12px;
+                    color: #414141;
+                }
+            }
+        }
+    }
+}
+
+.get-quote {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 30px;
+    gap: 15px;
+
+    width: 199px;
+    height: 47px;
+
+    background: #FB923C;
+    border-radius: 5px;
+    border: 0px solid;
+
+    span {
+        font-family: 'Poppins';
+        color: #FFFFFF;
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 33px;
+    }
+}
+
+.call-now {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 7px 30px;
+    gap: 15px;
+
+    width: 199px;
+    height: 47px;
+
+    background: linear-gradient(267.78deg, #FB923C 0.19%, #BC5C4F 72.78%);
+    border-radius: 5px;
+    border: 0px solid;
+
+    margin-top: 20px;
+
+    span {
+        font-family: 'Poppins';
+        color: #FFFFFF;
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 33px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .heading-container {
+        height: 198px;
+
+        h1 {
+            font-family: 'Poppins';
+            font-weight: 700;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        p {
+            font-family: 'Poppins';
+            font-weight: 400;
+            font-size: 22px;
+        }
+    }
+
+    .center {
+        display: block;
+    }
+
+    .solar-container {
+        margin: 0px;
+    }
+
+    .solar-provider-header {
+        margin-top: 40px;
+
+        img {
+            left: 6px;
+        }
+
+        p {
+            font-family: 'Poppins';
+            font-weight: 700;
+            font-size: 16px;
+            color: #FFFFFF;
+        }
+    }
+}

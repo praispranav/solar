@@ -22,6 +22,7 @@ import NameEmail from "./pages/Form/NameEmail";
 import Congrats from "./pages/Form/Congrats";
 import { HelmetProvider } from "react-helmet-async";
 import ZipForm from "./pages/Form/ZipForm";
+import ResidentialSolarProviders from "./pages/ResidentialSolarProviders";
 
 const TopSolarCompanies = React.lazy(() => import("./pages/TopSolarCompanies"));
 const CaliforniaPrivacyNotice = React.lazy(() =>
@@ -123,6 +124,13 @@ function App() {
             </Route>
 
             <Route path={ROUTES.callland} element={<CallLand />} />
+            <Route
+              path={ROUTES.residentialSolarProviders}
+              element={
+                  <ResidentialSolarProviders />
+              }
+            />
+
             <Route
               path={ROUTES.topSolarCompanies}
               element={

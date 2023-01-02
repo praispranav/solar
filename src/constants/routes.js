@@ -11,6 +11,7 @@ export const ROUTES = {
 
     callland: "/callland",
 
+    residentialSolarProviders: "/residential-solar-providers",
     topSolarCompanies: "/top-solar-companies",
     californiaPrivacyNotice: "/california-privacy-notice",
     privacyPolicy: "/privacy-policy",
