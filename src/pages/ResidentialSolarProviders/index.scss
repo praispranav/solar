@@ -1,3 +1,5 @@
+$primary: #FB923C;
+
 .no-margin-padding {
     margin: 0px;
     padding: 0px;
@@ -26,7 +28,7 @@
         font-family: 'Poppins';
         font-weight: 400;
         font-size: 24px;
-        color: #FB923C;
+        color: $primary;
     }
 }
 
@@ -60,6 +62,7 @@
         top: -25px;
         object-fit: contain;
         width: 70px;
+        z-index: 100;
     }
 
     p {
@@ -70,13 +73,14 @@
     }
 }
 
-.solar-provider-card {
+@mixin solarProviderCard($borderRadius, $marginTop) {
     background: #FFFFFF;
     border: 1px solid #EFEFEF;
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.05);
-    border-radius: 7px;
-    padding: 0px 20px;
-    margin-top: 71px;
+    border-radius: $borderRadius;
+    padding: 20px 20px 20px 20px;
+    margin-top: $marginTop;
+    position: relative;
 
     &:first-child {
         margin-top: 0px;
@@ -86,10 +90,17 @@
 
     .position {
         text-align: left;
+        position: absolute;
+        top: 0px;
+    }
+
+    .text-primary {
+        color: $primary;
     }
 
     .content {
         display: flex;
+        margin-top: 20px;
         justify-content: space-between;
         align-items: center;
 
@@ -104,7 +115,7 @@
             align-items: center;
 
             .rating-number {
-                color: #FB923C;
+                color: $primary;
                 font-family: 'Poppins';
                 font-size: 32px;
                 font-weight: 700;
@@ -157,7 +168,7 @@
                 font-family: 'Poppins';
                 font-weight: 600;
                 font-size: 24px;
-                color: #FB923C;
+                color: $primary;
                 @extend .no-margin-padding;
             }
 
@@ -167,10 +178,12 @@
                 font-size: 16px;
                 line-height: 24px;
                 color: #414141;
+                margin: 10px auto 0px auto;
             }
 
             ul {
                 text-align: left;
+                margin-top: 10px;
                 list-style-image: url('../../assets/tick.svg');
 
                 li {
@@ -180,6 +193,48 @@
                     color: #414141;
                 }
             }
+        }
+    }
+}
+
+.solar-provider-card {
+    @include solarProviderCard(7px, 71px)
+}
+
+.solar-provider-card-2 {
+    @include solarProviderCard(0px, 0px)
+}
+
+hr {
+    background-color: #CACACA;
+}
+
+.best-company-bottom {
+    @include solarProviderCard(0px, 0px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 70px;
+
+    height: 91px;
+
+    background: #EFEFEF;
+    border-radius: 0px 0px 7px 7px !important;
+
+    div {
+        display: flex;
+        align-items: center;
+
+        p {
+            width: 281px;
+            text-align: left;
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            color: #60606B;
+            margin-left: 16px;
         }
     }
 }
@@ -195,7 +250,7 @@
     width: 199px;
     height: 47px;
 
-    background: #FB923C;
+    background: $primary;
     border-radius: 5px;
     border: 0px solid;
 
@@ -219,7 +274,7 @@
     width: 199px;
     height: 47px;
 
-    background: linear-gradient(267.78deg, #FB923C 0.19%, #BC5C4F 72.78%);
+    background: linear-gradient(267.78deg, $primary 0.19%, #BC5C4F 72.78%);
     border-radius: 5px;
     border: 0px solid;
 

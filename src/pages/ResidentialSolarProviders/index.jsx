@@ -27,6 +27,27 @@ function SolarProviderCardHeader() {
   );
 }
 
+function BestCompanyBottomSection() {
+  return <div className="best-company-bottom">
+    
+    <div className="">
+      <img src="/assets/images/financingOptions.svg" alt="financing option" />
+      <p>Flexible solar financing options with as little as $0 up front</p>
+    </div>
+    
+    <div className="">
+      <img src="/assets/images/settingIcon.svg" alt="financing option" />
+      <p>High-quality, professional, local installation</p>
+    </div>
+
+    <div className="">
+      <img src="/assets/images/noHassel.svg" alt="financing option" />
+      <p>Complete no-hassle system guarantee</p>
+    </div>
+
+  </div>;
+}
+
 function SolarProviderCard({
   position,
   name,
@@ -36,12 +57,13 @@ function SolarProviderCard({
   userRatings,
   number,
   features,
-  stars
+  stars,
+  className,
 }) {
   return (
-    <div className="solar-provider-card">
+    <div className={className ? className : "solar-provider-card"}>
       <div>
-        <p className="position">#{position}</p>
+        <p className={`position ${ position === 1 ? 'text-primary' : ""}`}>#{position}</p>
       </div>
       <div className="content">
         <div className="logo">
@@ -65,10 +87,10 @@ function SolarProviderCard({
         </div>
 
         <div className="vertical-line" />
-        
+
         <div className="company-details">
           <h4 className="company-name">{name}</h4>
-          { number ? <p className="number">{number}</p> : undefined }
+          {number ? <p className="number">{number}</p> : undefined}
           <ul>
             {features.map((feature) => (
               <li>{feature}</li>
@@ -82,14 +104,12 @@ function SolarProviderCard({
           <button className="get-quote">
             <span>Get Quote</span>
           </button>
-          {
-            position === 1 ? (
-          <button className="call-now">
-            <img src="/assets/images/whiteCallButton.svg" />
-            <span>Call Now</span>
-          </button>
-            ) : undefined
-          }
+          {position === 1 ? (
+            <button className="call-now">
+              <img src="/assets/images/whiteCallButton.svg" />
+              <span>Call Now</span>
+            </button>
+          ) : undefined}
         </div>
       </div>
     </div>
@@ -99,7 +119,7 @@ function SolarProviderCard({
 export default function ResidentialSolarProviders() {
   return (
     <>
-    <Navbar />
+      <Navbar />
       <Heading />
       <div className="center">
         <div className="solar-container">
@@ -109,16 +129,26 @@ export default function ResidentialSolarProviders() {
               <SolarProviderCard {...solar} key={solar.name} />
             ))}
           </div>
-          <div style={{ marginTop: "60px" }} />
-          <SolarProviderCardHeader />
-          <div>
-            {RESIDENTIAL_SOLAR_PROVIDER.slice(0,1).map((solar) => (
-              <SolarProviderCard {...solar} key={solar.name} />
-            ))}
-          </div>
-          <div style={{ marginBottom: "200px" }} />
         </div>
       </div>
+      <div style={{ marginTop: "40px" }} />
+      <hr />
+      <div className="center">
+        <div className="solar-container">
+          <SolarProviderCardHeader />
+          <div>
+            {RESIDENTIAL_SOLAR_PROVIDER.slice(0, 1).map((solar) => (
+              <SolarProviderCard
+                className="solar-provider-card-2"
+                {...solar}
+                key={solar.name}
+              />
+            ))}
+            <BestCompanyBottomSection />
+          </div>
+        </div>
+      </div>
+      <div style={{ marginBottom: "200px" }} />
       <Footer />
     </>
   );
