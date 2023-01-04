@@ -12,6 +12,7 @@ import { useFormik } from "formik";
 import axios from "axios";
 import { REDIRECT_AND_STORAGE_KEYS } from "../../constants/queryStrings";
 import { localStorageKeys } from "../../constants/localStorage";
+import PropagateLoader from "react-spinners/PropagateLoader";
 import "./index.scss";
 
 const initialValues = {
@@ -231,8 +232,17 @@ export default function ZipForm() {
             type="submit"
             role={"button"}
             className="submit-data medium"
-          >
-            Continue
+          > {loading ? (
+            <>
+              <PropagateLoader
+                color="#edd185"
+                className="margin-loader"
+              />
+              <p className="visibility-hidden">.</p>{" "}
+            </>
+          ) : (
+            <>Continue</>
+          )}
           </button>
         </div>
       </section>

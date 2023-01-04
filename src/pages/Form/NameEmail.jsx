@@ -9,6 +9,11 @@ import { sessionStorageKeys } from "../../constants/localStorage";
 import { LEAD } from "../../constants/lead";
 import { useGeneratorQuery } from "../../hooks/useGeneratorQuery";
 import { useRgbaHook } from "../../hooks/useRgba";
+import {
+  localStorageKeys,
+} from "../../constants/localStorage";
+import moment from "moment-timezone";
+import PropagateLoader from "react-spinners/PropagateLoader";
 
 const errorimg = "/assets/images/error.svg";
 
@@ -29,13 +34,14 @@ const validationSchema = yup.object({
     .string()
     .matches(EMAIL_RX, "Email is not valid")
     .required("Email is required."),
-  mobile: yup.string().required("Mobile is required"),
+  mobile: yup.string().required("Mobile is required").min(10),
 });
 
 export default function NameEmail() {
   const navigate = useNavigate();
   const generatorQuery = useGeneratorQuery();
-  const { storeRgbaData } = useRgbaHook()
+  const { storeRgbaData } = useRgbaHook();
+  const [loading, setLoading] = useState(false);
 
   const removeLeadScript = () => {
     const leadInput = window.document.getElementById("leadid_token");
@@ -64,23 +70,132 @@ export default function NameEmail() {
       sessionStorage.setItem(sessionStorageKeys.email, values.email);
       sessionStorage.setItem(sessionStorageKeys.mobile, values.mobile);
 
-      storeRgbaData('firstName', values.firstName)
-      storeRgbaData('lastName', values.lastName)
-      storeRgbaData('email', values.email)
-      storeRgbaData('mobile', values.mobile)
+      storeRgbaData("firstName", values.firstName);
+      storeRgbaData("lastName", values.lastName);
+      storeRgbaData("email", values.email);
+      storeRgbaData("mobile", values.mobile);
 
       removeLeadScript();
       navigate(ROUTES.congrats);
     },
   });
 
+  const onSubmit = () => {
+    const zip = sessionStorage.getItem(sessionStorageKeys.zip);
+    const bill = sessionStorage.getItem(sessionStorageKeys.bill);
+    const shade = sessionStorage.getItem(sessionStorageKeys.shade);
+    const homeOwner = sessionStorage.getItem(sessionStorageKeys.homeOwner);
+    const utilityProviders = sessionStorage.getItem(
+      sessionStorageKeys.utilityProviders
+    );
+    const firstName = sessionStorage.getItem(sessionStorageKeys.firstName);
+    const lastName = sessionStorage.getItem(sessionStorageKeys.lastName);
+    const email = sessionStorage.getItem(sessionStorageKeys.email);
+    const mobile = sessionStorage.getItem(sessionStorageKeys.mobile);
+    const countryCode = sessionStorage.getItem(sessionStorageKeys.countryCode);
+
+    const extraData = sessionStorage.getItem(
+      sessionStorageKeys.zipCodeExtraValues
+    );
+    const utm_fbclid = sessionStorage.getItem(sessionStorageKeys.utm_fbclid);
+
+    const zipCodeDataParsed = JSON.parse(extraData);
+    const utmParsed = JSON.parse(utm_fbclid);
+
+    const preparedData = {
+      visitorId: localStorage.getItem(localStorageKeys.visitorId),
+      zip,
+      bill,
+      shade,
+      homeOwner,
+      utilityProviders,
+      firstName,
+      lastName,
+      email,
+      mobile,
+      countryCode,
+      ...zipCodeDataParsed,
+      ...utmParsed,
+    };
+    save(preparedData);
+  };
+
+  const updateLastSavedFormValues = (values) => {
+    const currentFormValues = localStorage.getItem(
+      localStorageKeys.lastSubmittedData
+    );
+
+    values.createdDate = moment()
+      .tz("America/Los_Angeles")
+      .format("YYYY-MM-DD HH:MM:SS");
+
+    let finalValue = [];
+
+    if (currentFormValues) {
+      const parsed = JSON.stringify(currentFormValues);
+      if (Array.isArray(parsed)) {
+        const copyParsedValues = [...parsed];
+        copyParsedValues.push(values);
+        finalValue = copyParsedValues;
+      } else {
+        localStorage.removeItem(localStorageKeys.lastSubmittedData);
+        finalValue = [values];
+      }
+    } else {
+      finalValue = [values];
+    }
+
+    localStorage.setItem(
+      localStorageKeys.lastSubmittedData,
+      JSON.stringify(finalValue)
+    );
+  };
+
+  const save = (formData) => {
+    setLoading(true);
+    updateLastSavedFormValues(formData);
+    const requestOptions = {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    };
+    fetch(
+      "https://www.figma.com/file/YmVp0gWLJl0LKnuJ2by1cY/Solar-Panel-Quotes?node-id=0%3A1",
+      requestOptions
+    )
+      .then((response) => {
+        setLoading(false);
+        sessionStorage.setItem(
+          sessionStorageKeys.finalPreparedData,
+          JSON.stringify(formData)
+        );
+        // setFormEnd({
+        //   fname: formData.firstName,
+        //   lname: formData.lastName,
+        // });
+
+        sessionStorage.setItem(sessionStorageKeys.submitSuccessful, "yes");
+      })
+      .then((data) => {
+        navigate({
+          pathname: ROUTES.full.children.congrats,
+          search: generatorQuery.get(),
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   const fillOldValue = () => {
     const firstName = sessionStorage.getItem(sessionStorageKeys.firstName);
     const lastName = sessionStorage.getItem(sessionStorageKeys.lastName);
     const email = sessionStorage.getItem(sessionStorageKeys.email);
     const mobile = sessionStorage.getItem(sessionStorageKeys.mobile);
-    if(mobile) setValues({ firstName, lastName, email, mobile });
-    else setValues({ firstName, lastName, email });
+    if (firstName && lastName && email && mobile) setValues({ firstName, lastName, email, mobile });
   };
 
   const checkOldFormValues = () => {
@@ -232,7 +347,17 @@ export default function NameEmail() {
             role={"button"}
             className="submit-data medium"
           >
-            Get my Free Quote
+             {loading ? (
+                  <>
+                    <PropagateLoader
+                      color="#edd185"
+                      className="margin-loader"
+                    />
+                    <p className="visibility-hidden">.</p>{" "}
+                  </>
+                ) : (
+                  <>Get my Free Quote</>
+                )}
           </button>
         </div>
       </section>
