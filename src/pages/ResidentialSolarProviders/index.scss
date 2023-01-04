@@ -121,6 +121,7 @@ $primary: #FB923C;
                 font-weight: 700;
                 margin: 0px;
                 padding: 0px;
+               
             }
 
             .quote {
@@ -132,6 +133,7 @@ $primary: #FB923C;
                 color: #EA580C;
                 margin: 0px;
                 padding: 0px;
+                margin-top: 1rem;
             }
 
             .user-rating {
@@ -141,6 +143,7 @@ $primary: #FB923C;
                 color: #414141;
                 margin: 0px;
                 padding: 0px;
+                margin-top: 1rem;
             }
         }
 
@@ -328,5 +331,30 @@ hr {
             font-size: 16px;
             color: #FFFFFF;
         }
+    }
+
+    @mixin solarProviderCardMobile($borderRadius, $marginTop) {
+        .content {
+
+            flex-direction: column;
+
+            .vertical-line {
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    .solar-provider-card {
+        @include solarProviderCardMobile(7px, 71px);
+
+    }
+
+    .solar-provider-card-2 {
+        @include solarProviderCardMobile(0px, 0px);
+    }
+
+    .best-company-bottom{
+        flex-direction: column;
+        height: 100%;
     }
 }

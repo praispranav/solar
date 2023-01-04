@@ -74,11 +74,12 @@ function SolarProviderCard({
 
         <div className="rating-section">
           <p className="rating-number">{rating}</p>
-          <Stack spacing={0}>
+          <Stack spacing={1} style={{ marginTop: '1rem'}}>
             <Rating
               name="half-rating"
               defaultValue={Number(stars)}
               precision={0.5}
+              max={5}
               readOnly
             />
           </Stack>
@@ -93,7 +94,7 @@ function SolarProviderCard({
           {number ? <p className="number">{number}</p> : undefined}
           <ul>
             {features.map((feature) => (
-              <li>{feature}</li>
+              <li key={feature}>{feature}</li>
             ))}
           </ul>
         </div>

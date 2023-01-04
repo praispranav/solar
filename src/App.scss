@@ -130,9 +130,9 @@ input[type="number"] {
   flex-wrap: wrap;
 }
 
-.rating > span,
-.rating > img,
-.rating > div {
+.rating>span,
+.rating>img,
+.rating>div {
   margin: 0 7px;
 }
 
@@ -175,7 +175,7 @@ input[type="number"] {
   flex-wrap: wrap;
 }
 
-.footer-links > div {
+.footer-links>div {
   padding: 0 10px;
 }
 
@@ -320,9 +320,9 @@ input[type="number"] {
   flex-wrap: wrap;
 }
 
-.rating > span,
-.rating > img,
-.rating > div {
+.rating>span,
+.rating>img,
+.rating>div {
   margin: 0 7px;
 }
 
@@ -365,7 +365,7 @@ input[type="number"] {
   flex-wrap: wrap;
 }
 
-.footer-links > div {
+.footer-links>div {
   padding: 0 10px;
 }
 
@@ -405,19 +405,23 @@ input[type="number"] {
   margin-top: -9px;
 }
 
-.font-12{
-    font-size: 12px;
+.font-12 {
+  font-size: 12px;
 }
 
-.form-error-2{
-    margin-top: 5px;
-    color: red;
+.form-error-2 {
+  margin-top: 5px;
+  color: red;
 }
 
-.flex-1{
+.flex-1 {
   flex: 1;
 }
 
-.mb-2{
+.mb-2 {
   margin-bottom: 5px;
+}
+
+.css-ryrseu-MuiRating-root {
+  color: #EA580C !important;
 }
