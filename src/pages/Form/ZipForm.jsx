@@ -67,15 +67,6 @@ export default function ZipForm() {
     },
   });
 
-  const handleNext = (yesno) => {
-    storeRgbaData("homeOwner", yesno);
-    sessionStorage.setItem(sessionStorageKeys.homeOwner, yesno);
-    navigate({
-      pathname: ROUTES.nameEmail,
-      search: generatorQuery.get(),
-    });
-  };
-
   const checkCurrentFormValue = () =>{
     const zipCodeValue = sessionStorage.getItem(sessionStorageKeys.zip)
     if(zipCodeValue) setValues({ zip: zipCodeValue })
@@ -196,6 +187,18 @@ export default function ZipForm() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
+  const onChangeZipValue = (e) => {
+    const value = e.target.value;
+    const obj = {
+      target: {
+        name: "zip",
+        value: String(value).slice(0, 5),
+      },
+    };
+    dataLayer.set("zip", value);
+    handleChange(obj);
+  };
+
   return (
     <div className="form flex-center-col">
       <div className="small">
@@ -215,10 +218,12 @@ export default function ZipForm() {
           <div className="add-state media-flex-center-col">
             <input
               required
-              type="text"
-              onChange={handleChange}
-              onBlur={handleBlur}
               value={values.zip}
+              onChange={onChangeZipValue}
+              onBlur={handleBlur}
+              maxLength={5}
+              max={99999}
+              type="number"
               name="zip"
               placeholder="Zip Code"
               className="address"

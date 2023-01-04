@@ -21,7 +21,10 @@ export default function MonthlyElectricBill() {
     })
   };
 
-  const checkOldFormValues = () => {};
+  const checkOldFormValues = () => {
+    const zip = sessionStorage.getItem(sessionStorageKeys.zip);
+    if(!zip) return navigate({ pathname: ROUTES.zip, search: generatorQuery.get(), })
+  };
 
   useEffect(() => {
     checkOldFormValues()
